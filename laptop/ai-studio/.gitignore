@@ -1,0 +1,6 @@
+.env
+config.yaml
+examples/*/work/
+examples/*/out/
+examples/*/voice/*.wav
+__pycache__/

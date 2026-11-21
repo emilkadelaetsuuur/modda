@@ -1,0 +1,273 @@
+{
+  "id": "pirotexnika_info_uz",
+  "kind": "infographic",
+  "lang": "uz",
+  "theme": "official",
+  "brand": "MODDA AI",
+  "source_line": "Manba: lex.uz  ·  OʻRQ-1111-son «Pirotexnika buyumlarining muomalasi toʻgʻrisida»gi qonun",
+  "music": {
+    "preset": "calm",
+    "volume": 0.24
+  },
+  "facts": [
+    {
+      "id": "f1",
+      "claim": "Гражданам можно только I класс",
+      "quote": "хранение и использование пиротехнических изделий I класса опасности",
+      "article": "ст. 4"
+    },
+    {
+      "id": "f2",
+      "claim": "II-V классы запрещены",
+      "quote": "пиротехнических изделий II — V классов опасности физическими и юридическими лицам запрещается",
+      "article": "ст. 5"
+    },
+    {
+      "id": "f3",
+      "claim": "Салюты проводит Минобороны",
+      "quote": "осуществляются Министерством обороны Республики Узбекистан",
+      "article": "ст. 6"
+    },
+    {
+      "id": "f4",
+      "claim": "Штраф 15-25 БРВ, было 5-20; 6 180 000 - 10 300 000 сум",
+      "quote": "заменить словами «в размере от пятнадцати до двадцати пяти»",
+      "article": "ст. 185¹ КоАО"
+    },
+    {
+      "id": "f5",
+      "claim": "Вступает в силу через 3 месяца, апрель 2026, подписан 13.01.2026",
+      "quote": "вступает в силу по истечении трех месяцев со дня его официального опубликования",
+      "article": "ст. 15"
+    }
+  ],
+  "shots": [
+    {
+      "id": "s01",
+      "speaker": "narrator",
+      "text": "Bitta petarda, va qoʻshnining balkoni yonmoqda!",
+      "scene": {
+        "type": "title",
+        "label": "Pirotexnika · Yangi yil",
+        "lines": [
+          "Bitta petarda.",
+          "Qoʻshnining balkoni",
+          "yonmoqda."
+        ],
+        "icon": "firecracker"
+      },
+      "emotion": "serious"
+    },
+    {
+      "id": "s02",
+      "speaker": "narrator",
+      "text": "Buning uchun jarima olti million soʻmdan ortiq.",
+      "scene": {
+        "type": "counter",
+        "label": "Fuqaro uchun eng kam jarima",
+        "value": 6180000,
+        "unit": "soʻm",
+        "note": "412 000 soʻmdan 15 BHM. Bu jarimaning quyi chegarasi."
+      },
+      "sfx": [
+        {
+          "name": "cash",
+          "at": 1.8,
+          "vol": 0.3
+        }
+      ],
+      "emotion": "serious"
+    },
+    {
+      "id": "s03",
+      "speaker": "narrator",
+      "text": "2026-yil apreldan pirotexnika haqida yangi qonun amalda.",
+      "scene": {
+        "type": "timeline",
+        "label": "Yangi qonun",
+        "title": "OʻRQ-1111",
+        "subtitle": "«Pirotexnika buyumlarining muomalasi toʻgʻrisida»",
+        "icon": "doc",
+        "points": [
+          {
+            "date": "13.01.2026",
+            "text": "Imzolandi"
+          },
+          {
+            "date": "+ 3 oy",
+            "text": "eʼlon qilingandan keyin"
+          },
+          {
+            "date": "2026-yil aprel",
+            "text": "Kuchga kirdi"
+          }
+        ]
+      },
+      "emotion": "serious"
+    },
+    {
+      "id": "s04",
+      "dur": 4.2,
+      "scene": {
+        "type": "bars",
+        "label": "4 va 5-moddalar",
+        "title": "Beshta xavf sinfi",
+        "subtitle": "Sinf qancha yuqori boʻlsa, xavfli zona shuncha katta",
+        "bars": [
+          {
+            "label": "I",
+            "value": 1,
+            "kind": "pos"
+          },
+          {
+            "label": "II",
+            "value": 2,
+            "kind": "neg"
+          },
+          {
+            "label": "III",
+            "value": 3,
+            "kind": "neg"
+          },
+          {
+            "label": "IV",
+            "value": 4,
+            "kind": "neg"
+          },
+          {
+            "label": "V",
+            "value": 5,
+            "kind": "neg"
+          }
+        ],
+        "groups": [
+          {
+            "from": 0,
+            "to": 0,
+            "text": "Mumkin",
+            "kind": "pos"
+          },
+          {
+            "from": 1,
+            "to": 4,
+            "text": "Fuqarolarga taqiqlangan",
+            "kind": "neg"
+          }
+        ],
+        "note": [
+          "Fuqarolarga faqat",
+          "I sinf ruxsat etilgan."
+        ],
+        "note_accent": "II–V: taqiqlangan"
+      }
+    },
+    {
+      "id": "s05",
+      "speaker": "narrator",
+      "text": "Qoidabuzarlik? Jarima BHMning oʻn beshdan yigirma besh baravarigacha va musodara.",
+      "scene": {
+        "type": "compare",
+        "label": "MJtK 185¹-modda, 1-qism",
+        "title": "Jarima oshdi",
+        "before": {
+          "caption": "Avval",
+          "value": "5–20 BHM"
+        },
+        "after": {
+          "caption": "Endi",
+          "value": "15–25 BHM"
+        },
+        "sub": "6 180 000 – 10 300 000 soʻm",
+        "tag": "+ musodara"
+      },
+      "sfx": [
+        {
+          "name": "stamp",
+          "at": 1.0,
+          "vol": 0.45
+        }
+      ],
+      "emotion": "serious"
+    },
+    {
+      "id": "s06",
+      "dur": 4.0,
+      "scene": {
+        "type": "columns",
+        "title": "Nima mumkin, nima mumkin emas",
+        "left": {
+          "title": "Mumkin",
+          "kind": "pos",
+          "sub": "I sinf",
+          "items": [
+            {
+              "icon": "sparkler",
+              "text": "Bengal olovi"
+            },
+            {
+              "icon": "fountain",
+              "text": "Kichik favvoralar"
+            }
+          ]
+        },
+        "right": {
+          "title": "Mumkin emas",
+          "kind": "neg",
+          "sub": "II–V sinflar",
+          "items": [
+            {
+              "icon": "firecracker",
+              "text": "Petardalar"
+            },
+            {
+              "icon": "rocket",
+              "text": "Raketalar"
+            },
+            {
+              "icon": "battery",
+              "text": "Salyut batareyalari"
+            }
+          ]
+        }
+      },
+      "sfx": [
+        {
+          "name": "ding",
+          "at": 0.7,
+          "vol": 0.3
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "speaker": "narrator",
+      "text": "Katta salyutni faqat Mudofaa vazirligi oʻtkazadi.",
+      "scene": {
+        "type": "statement",
+        "label": "6-modda",
+        "lead": [
+          "Bayramlardagi katta salyutni",
+          "faqat"
+        ],
+        "big": [
+          "Mudofaa",
+          "vazirligi oʻtkazadi"
+        ],
+        "icon": "shield"
+      },
+      "emotion": "serious"
+    },
+    {
+      "id": "s08",
+      "dur": 3.4,
+      "scene": {
+        "type": "outro",
+        "lines": [
+          "Qonunlarni",
+          "lex.uz da tekshiring"
+        ],
+        "sub": "Bayramni yorqin, lekin qonun bilan nishonlang."
+      }
+    }
+  ]
+}

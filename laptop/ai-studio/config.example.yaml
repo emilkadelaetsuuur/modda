@@ -1,0 +1,42 @@
+# Скопируйте в config.yaml и поправьте. Ключи API держите в .env (см. .env.example), не здесь.
+
+llm:
+  provider: anthropic            # anthropic | openai_compat (локальная LLM: vLLM, Ollama, LM Studio)
+  model: claude-sonnet-5-5       # для локальной, например: qwen3-32b-instruct
+  # base_url: http://localhost:11434/v1   # только для openai_compat (Ollama)
+  api_key_env: ANTHROPIC_API_KEY
+
+lexuz:
+  lang: ru                       # ru | uz | oz
+  api_url: ""                    # официальный LEX.UZ API, когда дадут доступ
+
+image:
+  mode: manual                   # api = Gemini (Nano Banana) | manual = промпты в tasks/, кадры кладёте сами
+  model: gemini-2.5-flash-image  # проверьте актуальный id в Google AI Studio
+  api_key_env: GEMINI_API_KEY
+
+video:
+  mode: manual                   # api = Veo | manual = Flow руками/через Claude in Chrome | still = ffmpeg без нейросети
+  backend: gemini                # gemini (ключ AI Studio) | vertex (Google Cloud проект)
+  model: veo-3.1-generate-001    # preview-версии veo-3.1-*-preview в Gemini API отключены 22.10.2026
+  project: ""                    # для vertex
+  location: us-central1
+  resolution: 720p
+  duration: 8
+
+tts:
+  provider: voicelab             # voicelab | mock (проверка монтажа без ключа)
+  base_url: https://back.aisha.group
+  api_key_env: VOICELAB_API_KEY
+  voice_ids:                     # свои голоса из кабинета VoiceLab (клон). Ключ: <персонаж> или <персонаж>_<язык>
+    # abror: 123
+    # narrator_ru: 456
+
+render:
+  lead: 0.35                     # пауза до первой реплики (там стоит удар/взрыв)
+  gap: 0.08                      # пауза между репликами
+  outro: 1.6                     # хвост после последней реплики (плашка источника)
+  music_volume: 0.30
+  brand: MODDA AI
+
+brv: 412000                      # 1 БРВ в сумах (проверьте актуальное значение)

@@ -1,0 +1,125 @@
+# Визуальные стили. Промпты для картинок и видео пишем на английском: модели так понимают лучше.
+# prompt   : добавляется в начало каждого кадра
+# lock     : добавляется в конец каждого видеопромпта, чтобы Veo не "уплывал" из стиля
+# negative : negative_prompt для Veo и подсказка "чего нет" для картинок
+# refs     : картинки-референсы стиля (assets/refs), передаются в генератор кадров
+
+bright:
+  title: "Яркий стикмен (утверждённый, ролик про пиротехнику)"
+  prompt: >-
+    Vibrant high-quality 2D cartoon illustration, bold clean black outlines, crisp sharp details,
+    bright saturated colors (electric blue, hot orange, magenta, lime green), cel shading with glossy
+    highlights, high contrast, dynamic cinematic composition, premium animated explainer look.
+    Stickman-style characters: big round white heads, small black dot eyes, expressive eyebrows,
+    thin black stick limbs, white cartoon gloves, colorful clothes.
+  lock: >-
+    Keep the exact same vibrant bold-outline 2D cartoon style, same characters, same colors,
+    crisp lines, no style change.
+  negative: "photorealistic, 3d render, blurry, washed out colors, text, letters, captions, watermark, logo, extra fingers"
+  refs: [style_bright_sheet.jpg]
+
+stickman:
+  title: "Классический стикмен (первая версия, проще и спокойнее)"
+  prompt: >-
+    Clean 2D stickman animation style, white background shapes with soft flat colors, simple round
+    white heads, black dot eyes, thin black limbs, white cartoon gloves, minimal props, soft drop
+    shadows, friendly explainer video look, between cartoon and semi-realistic environment.
+  lock: "Keep the same simple clean stickman style, flat colors, no style change."
+  negative: "photorealistic, 3d, gritty, dark, text, letters, watermark"
+  refs: []
+
+cartoon3d:
+  title: "3D мультфильм (вариант A, как анимационный фильм)"
+  prompt: >-
+    High-end 3D animated feature film style, soft global illumination, subsurface skin, big
+    expressive eyes, stylized proportions, rich warm color grading, shallow depth of field,
+    cinematic lighting, family animation studio quality.
+  lock: "Keep the same 3D animated film style and the same character design, consistent lighting."
+  negative: "2d, flat, photorealistic human skin pores, uncanny, text, letters, watermark"
+  refs: []
+
+kids_soft:
+  title: "Для малышей: мягкий, пастельный, без резких сцен"
+  prompt: >-
+    Soft friendly 2D children's book illustration, rounded shapes, thick soft outlines, warm pastel
+    colors with a few bright accents, gentle lighting, cozy and safe mood, cute stickman characters
+    with big round heads and rosy cheeks.
+  lock: "Keep the same soft pastel children's book style, gentle motion, nothing scary."
+  negative: "scary, violent, fire close-up, dark, horror, realistic, text, letters, watermark"
+  refs: []
+
+elder_clear:
+  title: "Для пожилых: спокойный, контрастный, крупные понятные объекты"
+  prompt: >-
+    Clear calm 2D illustration, large simple shapes, high contrast, warm natural colors, uncluttered
+    backgrounds, big readable gestures, friendly characters with round white heads, slow calm
+    composition, everything easy to see on a small phone screen.
+  lock: "Keep the same calm clear style, slow camera, no fast flashes."
+  negative: "chaotic, flashing, tiny details, dark, text, letters, watermark"
+  refs: []
+
+doc_infographic:
+  title: "Инфографика: для вставок с документами, цифрами, схемами (текст накладываем сами)"
+  prompt: >-
+    Clean flat vector infographic scene, bold shapes, two-tone palette of deep teal (#0F8B6E) and
+    warm yellow (#FFD628) on off-white, simple icons (gavel, document, coin, shield), lots of empty
+    space for overlay text, crisp edges.
+  lock: "Keep the same flat vector infographic look, smooth simple motion."
+  negative: "text, letters, numbers, watermark, photorealistic"
+  refs: []
+
+# ---------- Моушн-стили (профессиональный моушн-дизайн, примеры: assets/refs/motion/) ----------
+# Используются в обычном конвейере (кадры Nano Banana + анимация Veo/Flow): "style": "flat_motion" и т.д.
+
+flat_motion:
+  title: "Плоская иллюстрация: простые формы, приглушённые цвета, без градиентов и свечения"
+  prompt: >-
+    Professional flat vector motion-design illustration, simple geometric shapes, no outlines,
+    muted sophisticated palette (deep navy #1E2A4A, warm sand #E9D6BE, soft orange #F6A04D,
+    teal #2F8C84), subtle two-tone shading, clean negative space, explainer video style used by
+    top design studios, characters as simple faceless figures, calm and premium look.
+  lock: "Keep the same flat vector style, same palette, smooth eased motion, no glow, no gradients."
+  negative: "neon, glow, lens flare, 3d render, photorealistic, gradient mesh, cartoon outlines, text, letters, watermark"
+  refs: [motion/flat_motion.jpg]
+
+isometric:
+  title: "Изометрия: город, дома, машины, документы в одной схеме"
+  prompt: >-
+    Clean isometric 3D illustration at true 30-degree isometric angle, soft pastel palette
+    (light grey #EEF1F6 background, cornflower blue #789CD6, navy #3A5A96, warm yellow windows
+    #FFD678, accent red #C43232), flat shading with three tone faces, tiny simple figures,
+    diorama on a single floating tile, crisp edges, generous empty space.
+  lock: "Keep the same isometric angle and pastel palette, objects move along isometric axes only."
+  negative: "perspective camera, fisheye, neon, glow, photorealistic textures, text, letters, watermark"
+  refs: [motion/isometric.jpg]
+
+kinetic_type:
+  title: "Кинетическая типографика: крупные слова, цветные плашки (лучше делать рендером, текст точный)"
+  prompt: >-
+    Bold graphic design background for kinetic typography, flat solid color field (signal yellow
+    #FFD400) with black and red rectangular blocks, strong Swiss-style grid, lots of empty space for
+    large overlay text, no illustration details.
+  lock: "Keep flat color blocks, hard cuts, fast snappy eased motion."
+  negative: "text, letters, gradients, glow, 3d, photo, watermark"
+  refs: [motion/kinetic_type.jpg]
+
+line_art:
+  title: "Лайн-арт: тонкая монолиния на белом, красный для лжи, зелёный для правды"
+  prompt: >-
+    Minimal monoline line-art illustration, uniform black stroke of medium weight on pure white
+    background, no fills except rare accents in red #D62828 and green #16805A, simple icons and
+    objects (phone, document, stamp, scales), elegant editorial explainer look.
+  lock: "Keep single-weight black lines on white, lines draw on progressively, minimal motion."
+  negative: "color fills, shading, gradients, glow, 3d, photo, sketchy, text, letters, watermark"
+  refs: [motion/line_art.jpg]
+
+paper_cut:
+  title: "Бумажная аппликация: слои бумаги с мягкими тенями, тёплые цвета"
+  prompt: >-
+    Layered paper-cut craft illustration, flat colored paper shapes stacked in depth with soft
+    realistic drop shadows between layers, warm palette (cream #F4ECDE, teal #368C84, deep teal
+    #266C68, coral #E2604F, mustard #F6C478), subtle paper texture, handmade diorama feeling,
+    rolling hills and simple buildings.
+  lock: "Keep the same paper layers and shadows, gentle parallax between layers, no style change."
+  negative: "neon, glow, photorealistic, plastic, 3d render shine, text, letters, watermark"
+  refs: [motion/paper_cut.jpg]

@@ -1,0 +1,495 @@
+{
+  "id": "pirotexnika_ru",
+  "title": "Петарды на Новый год: что можно, а за что штраф",
+  "lang": "ru",
+  "audience": "teens",
+  "format": "explainer",
+  "style": "bright",
+  "source": {
+    "url": "https://lex.uz/ru/docs/7989828",
+    "plate": [
+      "ИСТОЧНИК: LEX.UZ",
+      "Закон ЗРУ-1111 от 13.01.2026",
+      "ст. 185¹ КоАО"
+    ]
+  },
+  "facts": [
+    {
+      "id": "f1",
+      "claim": "Гражданам можно только пиротехнику I класса",
+      "quote": "хранение и использование пиротехнических изделий I класса опасности",
+      "article": "ст. 4"
+    },
+    {
+      "id": "f2",
+      "claim": "II-V классы запрещены",
+      "quote": "пиротехнических изделий II — V классов опасности физическими и юридическими лицам запрещается",
+      "article": "ст. 5"
+    },
+    {
+      "id": "f3",
+      "claim": "Салюты на массовых мероприятиях проводит Минобороны",
+      "quote": "осуществляются Министерством обороны Республики Узбекистан",
+      "article": "ст. 6"
+    },
+    {
+      "id": "f4",
+      "claim": "Штраф 15-25 БРВ (больше 6 млн сум)",
+      "quote": "заменить словами «в размере от пятнадцати до двадцати пяти»",
+      "article": "ст. 185¹ КоАО"
+    },
+    {
+      "id": "f5",
+      "claim": "Закон вступает в силу через 3 месяца после публикации, с апреля 2026",
+      "quote": "вступает в силу по истечении трех месяцев со дня его официального опубликования",
+      "article": "заключительная статья"
+    }
+  ],
+  "clips": {
+    "c1": {
+      "shot": "hook_extreme_low",
+      "characters": [
+        "crowd"
+      ],
+      "scene": "A colorful Tashkent apartment block at night in winter, a firecracker explodes on a balcony, laundry catches fire, neighbors lean out of windows in shock.",
+      "action": "the firecracker blast flashes on the balcony and neighbors jump back",
+      "motion": "handheld_blast",
+      "props": [
+        "exploding firecracker",
+        "burning balcony laundry"
+      ]
+    },
+    "c2": {
+      "shot": "ecu_reaction",
+      "characters": [
+        "abror"
+      ],
+      "scene": "Abror's face fills the frame at night, fireworks bokeh behind him, he is outraged.",
+      "action": "Abror shouts angrily and points straight at the camera",
+      "motion": "snap_zoom_yell",
+      "props": [
+        "fireworks bokeh in the night sky"
+      ]
+    },
+    "c3": {
+      "shot": "top_down_table",
+      "characters": [],
+      "scene": "A turquoise table covered with firecrackers, rockets and a big multi-shot firework cake box, a white cartoon glove slams down in the center.",
+      "action": "the hand slams the table and the firecrackers bounce",
+      "motion": "top_down_impact",
+      "props": [
+        "firecrackers",
+        "rockets",
+        "firework cake box"
+      ]
+    },
+    "c4": {
+      "shot": "over_shoulder_officer",
+      "characters": [
+        "officer",
+        "crowd"
+      ],
+      "scene": "Snowy evening street, a teenage stickman boy in a yellow puffer jacket holds a box of firecrackers and sweats nervously, a police car with blue lights behind.",
+      "action": "the boy nervously scratches his head and slowly hands over the box",
+      "motion": "slow_arc",
+      "props": [
+        "box of firecrackers",
+        "police car with blue lights",
+        "officer tablet"
+      ]
+    },
+    "c5": {
+      "shot": "aerial_drone",
+      "characters": [],
+      "scene": "Aerial view of a snowy Tashkent-like city at night with the TV tower, a huge official fireworks show bursts in the sky above a park full of people.",
+      "action": "giant colorful fireworks burst one after another above the tower",
+      "motion": "drone_flyin",
+      "props": [
+        "Tashkent TV tower",
+        "official fireworks show"
+      ]
+    },
+    "c6": {
+      "shot": "low_orbit_group",
+      "characters": [
+        "abror",
+        "crowd"
+      ],
+      "scene": "Abror laughs with a happy family in winter clothes under string lights and falling snow, everyone holds small sparklers.",
+      "action": "everyone waves sparklers and laughs together",
+      "motion": "low_orbit",
+      "props": [
+        "small handheld sparklers",
+        "string lights"
+      ]
+    }
+  },
+  "shots": [
+    {
+      "id": "s01",
+      "speaker": "narrator",
+      "emotion": "serious",
+      "text": "Одна петарда, и у соседей горит балкон!",
+      "audio": {
+        "file": "voice_src/narr.mp3",
+        "from": 0.0,
+        "to": 2.7
+      },
+      "captions": [
+        [
+          "Одна петарда,",
+          "y",
+          0.0,
+          1.02
+        ],
+        [
+          "и у соседей",
+          "w",
+          1.3,
+          1.9
+        ],
+        [
+          "горит балкон!",
+          "r",
+          1.9,
+          2.7
+        ]
+      ],
+      "visual": {
+        "clip": "c1",
+        "offset": 0.0
+      },
+      "sfx": [
+        "boom"
+      ]
+    },
+    {
+      "id": "s02",
+      "speaker": "abror",
+      "emotion": "shouting",
+      "text": "Эй! Вы что творите?!",
+      "audio": {
+        "file": "voice_src/abror_a.mp3",
+        "from": 0.0,
+        "to": 2.05
+      },
+      "captions": [
+        [
+          "ЭЙ!",
+          "y",
+          0.0,
+          0.5
+        ],
+        [
+          "Вы что творите?!",
+          "w",
+          0.55,
+          2.05
+        ]
+      ],
+      "visual": {
+        "clip": "c2",
+        "offset": 0.2
+      }
+    },
+    {
+      "id": "s03",
+      "speaker": "narrator",
+      "emotion": "serious",
+      "text": "А штраф за это больше шести миллионов сумов.",
+      "audio": {
+        "file": "voice_src/narr.mp3",
+        "from": 3.0,
+        "to": 5.75
+      },
+      "captions": [
+        [
+          "А штраф за это",
+          "w",
+          0.0,
+          0.88
+        ],
+        [
+          "больше 6 млн сум",
+          "y",
+          0.88,
+          2.75
+        ]
+      ],
+      "visual": {
+        "clip": "c4",
+        "offset": 0.0
+      },
+      "facts": [
+        "f4"
+      ]
+    },
+    {
+      "id": "s04",
+      "speaker": "abror",
+      "emotion": "angry",
+      "text": "Петарды, ракеты, уличные салюты!",
+      "audio": {
+        "file": "voice_src/abror_a.mp3",
+        "from": 2.02,
+        "to": 4.5
+      },
+      "captions": [
+        [
+          "Петарды,",
+          "w",
+          0.0,
+          0.68
+        ],
+        [
+          "ракеты,",
+          "w",
+          0.68,
+          1.33
+        ],
+        [
+          "уличные салюты",
+          "y",
+          1.33,
+          2.48
+        ]
+      ],
+      "visual": {
+        "image": "c3",
+        "fx": "slam"
+      },
+      "sfx": [
+        {
+          "name": "boom",
+          "vol": 0.55,
+          "dur": 1.2
+        }
+      ],
+      "facts": [
+        "f2"
+      ]
+    },
+    {
+      "id": "s05",
+      "speaker": "abror",
+      "emotion": "shouting",
+      "text": "Всё это запрещено!",
+      "audio": {
+        "file": "voice_src/abror_a.mp3",
+        "from": 4.65,
+        "to": 6.05
+      },
+      "captions": [
+        [
+          "ВСЁ ЭТО",
+          "w",
+          0.0,
+          0.55
+        ],
+        [
+          "ЗАПРЕЩЕНО!",
+          "r",
+          0.55,
+          1.4
+        ]
+      ],
+      "visual": {
+        "clip": "c2",
+        "offset": 4.6
+      },
+      "facts": [
+        "f2"
+      ]
+    },
+    {
+      "id": "s06",
+      "speaker": "narrator",
+      "emotion": "serious",
+      "text": "С апреля 2026 года действует новый закон о пиротехнике.",
+      "audio": {
+        "file": "voice_src/narr.mp3",
+        "from": 6.08,
+        "to": 9.88
+      },
+      "captions": [
+        [
+          "С апреля 2026 года",
+          "w",
+          0.0,
+          1.54
+        ],
+        [
+          "действует новый",
+          "w",
+          1.54,
+          2.44
+        ],
+        [
+          "закон о пиротехнике",
+          "y",
+          2.44,
+          3.8
+        ]
+      ],
+      "visual": {
+        "clip": "c1",
+        "offset": 3.6
+      },
+      "facts": [
+        "f5"
+      ]
+    },
+    {
+      "id": "s07",
+      "speaker": "narrator",
+      "emotion": "warning",
+      "text": "Нарушил? Штраф от пятнадцати до двадцати пяти БРВ и конфискация.",
+      "audio": {
+        "file": "voice_src/narr.mp3",
+        "from": 10.12,
+        "to": 15.12
+      },
+      "captions": [
+        [
+          "Нарушил?",
+          "w",
+          0.0,
+          0.66
+        ],
+        [
+          "Штраф 15-25 БРВ",
+          "y",
+          0.66,
+          4.02
+        ],
+        [
+          "и конфискация",
+          "r",
+          4.02,
+          5.0
+        ]
+      ],
+      "visual": {
+        "clip": "c4",
+        "offset": 2.9
+      },
+      "facts": [
+        "f4"
+      ]
+    },
+    {
+      "id": "s08",
+      "speaker": "abror",
+      "emotion": "happy",
+      "text": "А бенгальские огни и маленькие фонтанчики можно!",
+      "audio": {
+        "file": "voice_src/abror_a.mp3",
+        "from": 6.36,
+        "to": 8.95
+      },
+      "captions": [
+        [
+          "А бенгальские огни",
+          "g",
+          0.0,
+          1.06
+        ],
+        [
+          "и маленькие фонтанчики",
+          "w",
+          1.06,
+          2.1
+        ],
+        [
+          "МОЖНО!",
+          "g",
+          2.1,
+          2.59
+        ]
+      ],
+      "visual": {
+        "clip": "c6",
+        "offset": 0.0
+      },
+      "facts": [
+        "f1"
+      ]
+    },
+    {
+      "id": "s09",
+      "speaker": "narrator",
+      "emotion": "calm",
+      "text": "Большие салюты проводит только Минобороны.",
+      "audio": {
+        "file": "voice_src/narr.mp3",
+        "from": 15.48,
+        "to": 18.5
+      },
+      "captions": [
+        [
+          "Большие салюты",
+          "w",
+          0.0,
+          0.98
+        ],
+        [
+          "проводит только",
+          "w",
+          0.98,
+          1.7
+        ],
+        [
+          "Минобороны",
+          "y",
+          1.7,
+          3.02
+        ]
+      ],
+      "visual": {
+        "clip": "c5",
+        "offset": 0.0
+      },
+      "sfx": [
+        "fireworks_show"
+      ],
+      "facts": [
+        "f3"
+      ]
+    },
+    {
+      "id": "s10",
+      "speaker": "abror",
+      "emotion": "laughs",
+      "text": "Ха-ха! Отмечайте ярко, но по закону!",
+      "audio": {
+        "file": "voice_src/abror_a.mp3",
+        "from": 9.28,
+        "to": 12.3
+      },
+      "captions": [
+        [
+          "Ха-ха!",
+          "w",
+          0.0,
+          0.5
+        ],
+        [
+          "Отмечайте ярко,",
+          "y",
+          0.5,
+          1.67
+        ],
+        [
+          "но ПО ЗАКОНУ!",
+          "g",
+          1.67,
+          3.02
+        ]
+      ],
+      "visual": {
+        "clip": "c6",
+        "offset": 4.5
+      }
+    }
+  ]
+}

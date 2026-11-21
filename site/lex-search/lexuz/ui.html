@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Huquqiy qidiruv</title>
+<style>
+:root {
+  --bg: #f6f7f9; --panel: #ffffff; --text: #16202c; --muted: #5d6b7a; --line: #e2e6eb;
+  --accent: #0b5cad; --accent-soft: #e8f1fb; --mark: #ffe8a3; --ok: #1d7a46; --ok-soft: #e4f4ea;
+  --bad: #b3261e; --bad-soft: #fbe9e7; --shadow: 0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.08);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f141a; --panel: #161d25; --text: #e6ebf0; --muted: #94a3b3; --line: #26313d;
+    --accent: #6aa8ec; --accent-soft: #1b2a3b; --mark: #6b5617; --ok: #5fcf8d; --ok-soft: #173326;
+    --bad: #f28b82; --bad-soft: #3a1d1b; --shadow: none;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text);
+  font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+a { color: var(--accent); }
+mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 1px; }
+
+header { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
+.bar { max-width: 1320px; margin: 0 auto; padding: 14px 20px 12px; }
+.brand { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.brand b { font-size: 18px; letter-spacing: -.01em; }
+.mlogo { display: inline-flex; }
+.mlogo img { display: block; height: 20px; width: auto; }
+.brand span { color: var(--muted); font-size: 13px; }
+.brand select { margin-left: auto; font: inherit; font-size: 13px; padding: 4px 8px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--panel); color: var(--text); }
+.search { position: relative; }
+.search input { width: 100%; font-size: 17px; padding: 12px 44px 12px 16px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--panel); color: var(--text); box-shadow: var(--shadow); outline: none; }
+.search input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.search kbd { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--muted);
+  font: 12px ui-monospace, monospace; border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; font-size: 13px; }
+.chip { border: 1px solid var(--line); background: var(--panel); color: var(--text); border-radius: 999px;
+  padding: 4px 12px; cursor: pointer; font: inherit; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.seg button { border: 0; background: var(--panel); color: var(--text); padding: 4px 10px; font: inherit; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.toggle { display: inline-flex; gap: 6px; align-items: center; color: var(--muted); cursor: pointer; }
+.meta { margin-left: auto; color: var(--muted); }
+.meta b { color: var(--text); font-variant-numeric: tabular-nums; }
+
+main { max-width: 1320px; margin: 0 auto; padding: 16px 20px 60px; display: grid;
+  grid-template-columns: minmax(0, 1fr); gap: 20px; }
+main.split { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px;
+  margin-bottom: 10px; box-shadow: var(--shadow); cursor: pointer; transition: border-color .12s; }
+.card:hover { border-color: var(--accent); }
+.card.active { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.doc { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); }
+.doc .t { font-weight: 600; color: var(--text); opacity: .85; }
+.badge { font-size: 11.5px; border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
+.badge.Y { background: var(--ok-soft); color: var(--ok); }
+.badge.R, .badge.N { background: var(--bad-soft); color: var(--bad); }
+.badge.cat { background: var(--accent-soft); color: var(--accent); }
+.badge.lang { border: 1px solid var(--line); color: var(--muted); text-transform: uppercase; letter-spacing: .03em; }
+.card h3 { margin: 6px 0 2px; font-size: 16px; line-height: 1.35; }
+.path { font-size: 12.5px; color: var(--muted); margin-bottom: 4px; }
+.snip { margin: 6px 0 0; color: var(--text); }
+.more { display: block; margin: 14px auto; }
+.more[hidden], .empty[hidden] { display: none; }
+.empty { color: var(--muted); padding: 30px 4px; }
+.examples { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+.viewer { position: sticky; top: 160px; align-self: start; max-height: calc(100vh - 180px); overflow: auto;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; box-shadow: var(--shadow); }
+.viewer[hidden] { display: none; }
+.vtop { display: flex; gap: 8px; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.vnav { display: flex; gap: 6px; }
+.btn { border: 1px solid var(--line); background: var(--panel); color: var(--text); border-radius: 8px;
+  padding: 5px 10px; cursor: pointer; font: inherit; font-size: 13px; text-decoration: none; }
+.btn:hover { border-color: var(--accent); }
+.btn[disabled] { opacity: .4; cursor: default; }
+.viewer h2 { margin: 6px 0 4px; font-size: 19px; line-height: 1.35; }
+.viewer .body p { margin: 0 0 9px; }
+.viewer details { margin-top: 14px; font-size: 13px; color: var(--muted); }
+.viewer details pre { white-space: pre-wrap; font: inherit; }
+.facts { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); margin: 6px 0 12px; }
+.note { font-size: 12px; color: var(--muted); font-style: italic; margin: -6px 0 10px; }
+footer { color: var(--muted); font-size: 12px; text-align: center; padding: 0 20px 30px; }
+
+@media (max-width: 1000px) {
+  main.split { grid-template-columns: minmax(0, 1fr); }
+  .viewer { position: fixed; inset: 0; align-self: stretch; max-height: none; border-radius: 0; z-index: 10; }
+  .meta { margin-left: 0; width: 100%; }
+}
+@media (max-width: 560px) {
+  .bar, main { padding-left: 16px; padding-right: 16px; }
+  .search kbd { display: none; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div class="brand"><a class="mlogo" href="/" aria-label="Modda"><picture><source srcset="/brand/modda-logo-light.png?v=2611" media="(prefers-color-scheme: dark)"><img src="/brand/modda-logo.png?v=2611" alt="Modda" width="101" height="20"></picture></a><b id="t-title"></b><span id="dbinfo"></span><select id="ui" aria-label="Til / Язык"></select></div>
+    <div class="search"><input id="q" type="search" autocomplete="off" autofocus><kbd>/</kbd></div>
+    <div class="filters" id="filters">
+      <span id="cats" style="display:contents"></span>
+      <span class="seg" id="langs"></span>
+      <label class="toggle"><input type="checkbox" id="active" checked> <span id="t-active"></span></label>
+      <span class="meta" id="meta"></span>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section id="list">
+    <div class="empty" id="hint"><span id="t-hint"></span><div class="examples" id="examples"></div></div>
+    <div id="results"></div>
+    <button class="btn more" id="more" hidden></button>
+  </section>
+  <aside class="viewer" id="viewer" hidden></aside>
+</main>
+<footer id="t-footer"></footer>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const fmt = (n) => (n ?? 0).toLocaleString("ru-RU");
+const fill = (s, o) => String(s).replace(/\{(\w+)\}/g, (_, k) => o[k] ?? "");
+const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+                set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
+
+const init = new URLSearchParams(location.search);
+const state = { ui: init.get("ui") || store.get("ui") || "uz-lat", lang: init.get("lang"), cat: init.get("cat") || "",
+                active: init.get("active") !== "0", offset: 0, rid: null };
+let T = {}, ctrl = null, timer = null;
+
+async function loadUi() {
+  T = await (await fetch("api/i18n?ui=" + encodeURIComponent(state.ui))).json();
+  state.ui = T.ui; store.set("ui", T.ui);
+  if (state.lang == null) state.lang = T.doc_lang;
+  document.documentElement.lang = T.ui === "ru" ? "ru" : "uz";
+  document.title = T.title;
+  $("#t-title").textContent = T.title;
+  $("#q").placeholder = T.placeholder;
+  $("#t-active").textContent = T.only_active;
+  $("#t-hint").textContent = fill(T.hint, { scripts: T.scripts_example });
+  $("#t-footer").textContent = T.footer;
+  $("#more").textContent = T.more;
+  $("#ui").innerHTML = Object.entries(T.ui_langs).map(([k, v]) =>
+    `<option value="${k}" ${k === T.ui ? "selected" : ""}>${esc(v)}</option>`).join("");
+  $("#examples").innerHTML = "";
+  T.examples.forEach(x => { const b = document.createElement("button"); b.className = "chip"; b.textContent = x;
+    b.onclick = () => { $("#q").value = x; run(); }; $("#examples").append(b); });
+  renderLangs();
+  await loadStats();
+}
+
+function renderLangs() {
+  const opts = [["uz", T.lang_uz], ["ru", T.lang_ru], ["", T.lang_all]];
+  $("#langs").innerHTML = opts.map(([v, l]) =>
+    `<button data-lang="${v}" aria-pressed="${state.lang === v}">${esc(l)}</button>`).join("");
+  $("#langs").querySelectorAll("button").forEach(b => b.onclick = async () => {
+    state.lang = b.dataset.lang; state.cat = ""; renderLangs(); await loadStats(); run(); });
+}
+
+async function loadStats() {
+  const s = await (await fetch("api/stats?lang=" + state.lang)).json();
+  $("#dbinfo").textContent = fill(T.db, { docs: fmt(s.docs), units: fmt(s.units) });
+  const cats = Object.keys(s.categories);
+  if (state.cat && !cats.includes(state.cat)) state.cat = "";
+  $("#cats").innerHTML = ["", ...cats].map(c =>
+    `<button class="chip" data-cat="${esc(c)}" aria-pressed="${c === state.cat}">${
+      c ? esc(T.cat[c] || c) + " · " + fmt(s.categories[c]) : esc(T.all)}</button>`).join("");
+  $("#cats").querySelectorAll(".chip").forEach(b => b.onclick = () => {
+    state.cat = b.dataset.cat;
+    $("#cats").querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    run(); });
+}
+
+function setUrl() {
+  const p = new URLSearchParams();
+  if (state.q) p.set("q", state.q);
+  p.set("ui", state.ui);
+  if (state.lang !== T.doc_lang) p.set("lang", state.lang);
+  if (state.cat) p.set("cat", state.cat);
+  if (!state.active) p.set("active", "0");
+  history.replaceState(null, "", "?" + p);
+}
+
+async function run(append = false) {
+  state.q = $("#q").value.trim();
+  setUrl();
+  if (!append) state.offset = 0;
+  if (!state.q) { $("#results").innerHTML = ""; $("#meta").textContent = ""; $("#hint").hidden = false; $("#more").hidden = true; return; }
+  $("#hint").hidden = true;
+  ctrl?.abort(); ctrl = new AbortController();
+  const p = new URLSearchParams({ q: state.q, cat: state.cat, lang: state.lang, script: T.script,
+                                  active: state.active ? "1" : "0", offset: state.offset, limit: 20 });
+  let res;
+  try { res = await (await fetch("api/search?" + p, { signal: ctrl.signal })).json(); }
+  catch (e) { if (e.name !== "AbortError") $("#meta").textContent = T.error; return; }
+  if (res.error) { $("#meta").textContent = T.error + ": " + res.error; return; }
+  const html = res.results.map(card).join("");
+  const other = res.elsewhere && res.elsewhere.total
+    ? ` <button class="chip" onclick="switchLang('${res.elsewhere.lang}')">${esc(fill(T.elsewhere,
+        { n: fmt(res.elsewhere.total), lang: res.elsewhere.lang === "uz" ? T.lang_uz : T.lang_ru }))}</button>` : "";
+  $("#meta").innerHTML = fill(T.found, { n: fmt(res.total), ms: res.ms }) + (T[res.mode] && res.mode !== "all" ? esc(T[res.mode]) : "")
+    + (html && !append ? other : "");
+  if (append) $("#results").insertAdjacentHTML("beforeend", html);
+  else $("#results").innerHTML = html || `<div class="empty">${esc(T.nothing)}${other}</div>`;
+  $("#more").hidden = state.offset + res.results.length >= res.total;
+  if (!append && res.results.length && window.innerWidth > 1000) openUnit(res.results[0].rid);
+}
+
+function card(r) {
+  const st = r.status ? `<span class="badge ${r.status}">${esc(T.status[r.status])}</span>` : "";
+  const cat = r.category ? `<span class="badge cat">${esc(T.cat[r.category] || r.category)}</span>` : "";
+  const lg = state.lang ? "" : `<span class="badge lang">${r.lang === "uz" ? "uz" : "ru"}</span>`;
+  const ed = r.edition ? `<span>${esc(fill(T.edition_short, { d: r.edition }))}</span>` : "";
+  return `<article class="card" data-rid="${r.rid}" onclick="openUnit(${r.rid})">
+    <div class="doc">${lg}${cat}<span class="t">${esc(r.title)}</span>${st}${ed}</div>
+    <h3>${r.heading}</h3>
+    ${r.path ? `<div class="path">${esc(r.path)}</div>` : ""}
+    <p class="snip">${r.snippet}</p></article>`;
+}
+
+async function openUnit(rid) {
+  if (rid == null) return;
+  state.rid = rid;
+  document.querySelectorAll(".card").forEach(c => c.classList.toggle("active", +c.dataset.rid === rid));
+  const u = await (await fetch(`api/unit?rid=${rid}&script=${T.script}&q=${encodeURIComponent(state.q || "")}`)).json();
+  if (u.error) return;
+  const v = $("#viewer");
+  const fact = (key, val) => val ? `<span>${esc(fill(T[key], { d: val }))}</span>` : "";
+  v.innerHTML = `
+    <div class="vtop">
+      <div class="vnav">
+        <button class="btn" ${u.prev == null ? "disabled" : ""} onclick="openUnit(${u.prev})">${esc(T.prev)}</button>
+        <button class="btn" ${u.next == null ? "disabled" : ""} onclick="openUnit(${u.next})">${esc(T.next)}</button>
+      </div>
+      <div class="vnav">
+        <a class="btn" href="eksport/rolik?rid=${u.rid}" target="_blank" rel="noopener" title="${esc(T.video_hint)}">${esc(T.video)}</a>
+        <a class="btn" href="${u.url}" target="_blank" rel="noopener">${esc(T.open)}</a>
+        <button class="btn" onclick="closeViewer()" aria-label="${esc(T.close)}">✕</button>
+      </div>
+    </div>
+    <div class="doc"><span class="t">${esc(u.title)}</span>${u.status ? `<span class="badge ${u.status}">${esc(T.status[u.status])}</span>` : ""}</div>
+    <div class="facts">${fact("adopted", u.adopted)}${u.number ? `<span>№ ${esc(u.number)}</span>` : ""}${fact("effective", u.effective)}${fact("edition", u.edition)}</div>
+    ${u.lang === "ru" && T.ui !== "ru" ? `<div class="note">${esc(T.ru_note)}</div>` : ""}
+    ${u.path ? `<div class="path">${esc(u.path)}</div>` : ""}
+    <h2>${u.heading}</h2>
+    <div class="body">${u.paragraphs.map(p => `<p>${p}</p>`).join("")}</div>
+    ${u.notes ? `<details><summary>${esc(T.notes)}</summary><pre>${u.notes}</pre></details>` : ""}`;
+  v.hidden = false; v.scrollTop = 0;
+  $("#main").classList.add("split");
+}
+async function switchLang(lang) { state.lang = lang; state.cat = ""; renderLangs(); await loadStats(); run(); }
+function closeViewer() { $("#viewer").hidden = true; $("#main").classList.remove("split"); state.rid = null;
+  document.querySelectorAll(".card.active").forEach(c => c.classList.remove("active")); }
+
+$("#q").addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(run, 160); });
+$("#active").addEventListener("change", e => { state.active = e.target.checked; run(); });
+$("#more").addEventListener("click", () => { state.offset += 20; run(true); });
+$("#ui").addEventListener("change", async e => {
+  // язык документов следует за языком интерфейса, если пользователь не выбрал его сам
+  if (state.lang === T.doc_lang) state.lang = null;
+  state.ui = e.target.value;
+  const rid = state.rid;
+  await loadUi(); await run();
+  if (rid != null && window.innerWidth > 1000) openUnit(rid);
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "/" && document.activeElement !== $("#q")) { e.preventDefault(); $("#q").focus(); $("#q").select(); }
+  if (e.key === "Escape") closeViewer();
+});
+
+$("#active").checked = state.active;
+if (init.get("q")) $("#q").value = init.get("q");
+loadUi().then(() => { if ($("#q").value) run(); });
+</script>
+</body>
+</html>

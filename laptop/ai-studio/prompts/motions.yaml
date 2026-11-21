@@ -1,0 +1,77 @@
+# Движение камеры для видео (Veo / Omni / Flow). {action} = что делает персонаж в клипе.
+# В конец всегда добавляются: lock стиля + suffix ниже. Звук клипа мы всё равно глушим.
+# still: как имитировать движение без нейросети (режим --mode still, только ffmpeg).
+
+suffix: >-
+  Vertical 9:16. No dialogue, no voices, no singing, no narration, no text, no letters,
+  no subtitles, no logos.
+
+handheld_blast:
+  prompt: >-
+    Energetic handheld camera with a fast push-in toward the action. {action}. Strong camera
+    shake at the moment of impact, sparks and debris fly past the lens, then a quick whip-tilt up.
+  still: {zoom: [1.0, 1.18], shake: 14}
+
+snap_zoom_yell:
+  prompt: >-
+    Quick snap zoom in on the face. {action}. Eyebrows jump, slight camera bounce on every
+    accent, background bokeh drifts.
+  still: {zoom: [1.05, 1.22], shake: 6}
+
+top_down_impact:
+  prompt: >-
+    Static top-down camera. {action}. Small camera shake on impact, objects bounce up and settle.
+  still: {zoom: [1.25, 1.0], shake: 18, punch: true}
+
+slow_arc:
+  prompt: >-
+    The camera slowly arcs around the characters at shoulder height. {action}. Subtle parallax
+    between foreground and background.
+  still: {zoom: [1.0, 1.08], pan: [-30, 30]}
+
+drone_flyin:
+  prompt: >-
+    Sweeping cinematic drone fly-in over the city, the camera rises and slowly circles the
+    landmark. {action}.
+  still: {zoom: [1.0, 1.15], pan_y: [40, -40]}
+
+low_orbit:
+  prompt: >-
+    Smooth low-angle orbit around the group. {action}. Warm bokeh lights drift.
+  still: {zoom: [1.02, 1.1], pan: [40, -40]}
+
+push_in_slow:
+  prompt: "Slow steady push-in toward the characters. {action}. Natural small gestures, gentle blinks."
+  still: {zoom: [1.0, 1.1]}
+
+crane_down:
+  prompt: "The camera cranes down from above into the scene. {action}."
+  still: {zoom: [1.12, 1.0], pan_y: [-60, 0]}
+
+crane_up:
+  prompt: "The camera cranes up and back to reveal the whole scene. {action}."
+  still: {zoom: [1.12, 1.0], pan_y: [40, -20]}
+
+whip_pan:
+  prompt: "Fast whip pan from the left with motion blur, then the camera settles. {action}."
+  still: {zoom: [1.1, 1.0], pan: [-80, 0]}
+
+rack_focus:
+  prompt: "Static camera, focus racks from the foreground object to the background. {action}."
+  still: {zoom: [1.0, 1.06]}
+
+dolly_in_macro:
+  prompt: "Very slow macro dolly-in on the object, light glints travel across the surface. {action}."
+  still: {zoom: [1.0, 1.15]}
+
+dolly_zoom:
+  prompt: "Vertigo dolly-zoom effect: the character stays the same size while the background stretches away. {action}."
+  still: {zoom: [1.2, 1.0], shake: 3}
+
+static_breathing:
+  prompt: "Almost static camera with a slight breathing drift. {action}. Subtle particles in the air."
+  still: {zoom: [1.0, 1.04]}
+
+parallax_float:
+  prompt: "Gentle floating parallax, layers drift at different speeds. {action}."
+  still: {zoom: [1.0, 1.06], pan: [-20, 20]}

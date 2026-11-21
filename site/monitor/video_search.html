@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Поиск видео · Modda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap">
+  <style>
+:root{color-scheme:light;
+--bg:#fff;--ink:#141414;--ink-2:#1f2420;--muted:#6b6b6b;--line:#e8e8e8;--line-2:#dedede;
+--tray:#f6f8f7;--tray-2:#eff2f0;--accent:#fb510e;--accent-hover:#e04607;--accent-ink:#c2410c;--accent-soft:#fff1ea;
+--ok:#15803d;--ok-soft:#ecfdf3;--warn:#b45309;--warn-soft:#fff7e6;--bad:#b91c1c;--bad-soft:#fef2f2;
+--dark:#141414;--dark-2:#232323;--on-dark:#f5f5f5;--on-dark-muted:#a3a3a3;
+--r-lg:24px;--r-md:20px;--r-sm:16px;--r-xs:12px;
+--shadow:0 1px 4px rgba(12,12,13,.1),0 1px 4px rgba(12,12,13,.05);
+--font:"Onest","Outfit","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+--mono:ui-monospace,"Cascadia Mono",Consolas,monospace}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button,summary{cursor:pointer}
+a{color:var(--accent-ink);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em;color:var(--ink);margin:0}
+.shell{max-width:1240px;margin-inline:auto;padding-inline:clamp(16px,3vw,24px)}
+.site-head{position:sticky;top:0;z-index:20;padding-top:16px}
+.site-head .bar{display:flex;align-items:center;justify-content:space-between;gap:10px 20px;min-height:64px;padding:8px 10px 8px 22px;
+background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(230,230,230,.7);border-radius:var(--r-md);box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.brand{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:500;font-size:19px;letter-spacing:-.02em;white-space:nowrap}
+.brand:hover{text-decoration:none}
+.logo{display:block;height:26px;width:auto}
+.site-nav{display:flex;align-items:center;gap:6px 26px;flex-wrap:nowrap;font-size:15px;font-weight:500}
+.site-nav a{color:var(--muted);text-decoration:none;white-space:nowrap}
+.site-nav a:hover{color:var(--ink)}
+.site-nav a[aria-current=page]{color:var(--ink)}
+.head-cta{min-height:44px}
+.chip{display:inline-block;padding:6px 18px;background:var(--tray);border:1px solid var(--line);border-radius:999px;font-size:12px;font-weight:500;color:var(--ink-2);line-height:1.5}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:0 22px;border:0;border-radius:999px;
+background:var(--ink);color:#fff;font-size:14px;font-weight:500;letter-spacing:.02em;text-decoration:none;white-space:nowrap;transition:background .2s,transform .2s}
+.btn:hover{background:#2b2b2b;text-decoration:none}
+.btn:disabled{opacity:.55;cursor:default}
+.btn.accent{background:var(--accent)}.btn.accent:hover{background:var(--accent-hover)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line-2)}.btn.ghost:hover{background:var(--tray)}
+.btn.arrow{padding:6px 6px 6px 22px}
+.btn.arrow::after{content:"";width:32px;height:32px;border-radius:50%;flex:none;
+background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141414' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M8 7h9v9'/%3E%3C/svg%3E") center/16px no-repeat}
+.link-btn{background:none;border:0;padding:4px 0;color:var(--accent-ink);font-size:14px;font-weight:500;text-decoration:underline;text-underline-offset:3px}
+.tray{background:var(--tray);border-radius:var(--r-md);padding:8px}
+.card{background:#fff;border-radius:var(--r-sm);box-shadow:var(--shadow);padding:20px}
+.dark-panel{background:var(--dark);color:var(--on-dark);border-radius:var(--r-lg);padding:clamp(20px,2.6vw,32px)}
+input:not([type=checkbox]):not([type=radio]):not([type=file]),select,textarea{width:100%;min-height:44px;padding:10px 14px;background:#fff;border:1px solid var(--line-2);border-radius:var(--r-xs);outline:0;transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(251,81,14,.15)}
+input[type=file]{font-size:14px;max-width:100%}
+input[type=file]::file-selector-button{margin-right:12px;padding:8px 16px;border:1px solid var(--line-2);border-radius:999px;background:#fff;font:500 13px var(--font);cursor:pointer}
+.site-foot{margin:64px auto 24px}
+.site-foot .tray{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:28px 32px;border-radius:var(--r-lg)}
+.site-foot p{margin:6px 0 0;color:var(--muted);font-size:13px}
+.site-foot nav{display:flex;gap:6px 22px;flex-wrap:wrap;font-size:14px}
+.site-foot nav a{color:var(--ink);text-decoration:none}.site-foot nav a:hover{text-decoration:underline}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:900px){.site-nav{gap:4px 18px;font-size:14px;flex-wrap:wrap;justify-content:center;min-width:0}.site-head .bar{padding-left:18px}}
+@media(max-width:640px){
+.site-head{position:static;padding-top:10px}
+.site-head .bar{flex-wrap:wrap;gap:6px 8px;padding:10px 10px 10px 14px;min-height:0}
+.brand{font-size:16px;gap:8px}.logo{height:22px}
+.site-nav{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;gap:18px;font-size:14px;padding:2px 0;scrollbar-width:none}
+.site-nav{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);padding-right:24px}
+.site-nav::-webkit-scrollbar{display:none}
+.site-nav a{white-space:nowrap}
+.head-cta{order:2;min-height:36px;padding:0 12px;margin-left:auto;font-size:13px;letter-spacing:0}
+.site-foot .tray{padding:22px 20px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+    h1,h2,h3,p,ul { margin:0 }
+    .hero { padding:clamp(40px,6vw,72px) 0 clamp(24px,3vw,36px) }
+    h1 { font-size:clamp(44px,6.4vw,76px); line-height:1; margin-top:14px }
+    h2 { font-size:clamp(24px,2.4vw,30px); line-height:1.15 }
+    h3 { font-size:17px; font-weight:600; letter-spacing:-.01em; line-height:1.35 }
+    label { display:block; min-width:0; font-size:14px; font-weight:500; color:var(--ink-2) }
+    label>input,label>select,label>textarea { display:block; margin-top:6px }
+    textarea { resize:vertical }
+    button:disabled { cursor:default; opacity:.55 }
+    .row,.links,.presets { display:flex; align-items:center; gap:8px 14px; flex-wrap:wrap }
+    .row { align-items:flex-end; gap:12px }
+    .query { flex:1 1 260px }
+    .platform { flex:0 1 220px }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:0 22px; border:0; border-radius:999px; background:var(--ink); color:#fff; font-size:14px; font-weight:500; letter-spacing:.02em; transition:background .2s }
+    .button:hover:enabled { background:#2b2b2b }
+    .presets { margin-top:14px; gap:6px 8px }
+    .preset { min-height:32px; padding:0 14px; border:1px solid var(--line-2); border-radius:999px; background:#fff; color:var(--ink); font-size:13px; font-weight:500 }
+    .preset:hover { background:var(--tray) }
+    .presets span,.hint,.meta,.empty { color:var(--muted); font-size:14px }
+    .search label,.search .hint,.search .presets span { color:var(--on-dark-muted) }
+    .search label { font-size:13px }
+    .search .preset { background:transparent; border-color:#3a3a3a; color:var(--on-dark) }
+    .search .preset:hover { background:var(--dark-2) }
+    .search a,.search summary { color:#fdba74 }
+    .search input,.search select { background:var(--dark-2)!important; color:var(--on-dark); border-color:#3a3a3a!important }
+    .search input:focus,.search select:focus { border-color:var(--accent)!important }
+    .search input::placeholder { color:#8a8a8a }
+    .access { margin-top:18px; padding-top:16px; border-top:1px solid #3a3a3a }
+    .links { gap:4px 16px; font-size:14px; font-weight:500 }
+    .links .hint { font-weight:400 }
+    .search .links { margin:6px 0 }
+    .links details { margin:0 }
+    .notice { color:var(--ok); font-size:14px; white-space:pre-line; overflow-wrap:anywhere; margin-top:10px }
+    .notice:empty { display:none }
+    .error { color:var(--bad) }
+    #notice { margin-top:16px; padding:10px 14px; border-radius:var(--r-xs); background:var(--ok-soft) }
+    #notice.error { background:var(--bad-soft) }
+    #reload { margin-top:10px }
+    summary { color:var(--accent-ink); font-size:14px; font-weight:600; width:fit-content }
+    details { margin-top:10px }
+    .manual { margin-top:16px; padding:8px; background:var(--tray); border-radius:var(--r-md) }
+    .manual>summary { width:auto; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:8px 8px 8px 14px; list-style:none; color:var(--ink); font-size:16px }
+    .manual>summary::-webkit-details-marker { display:none }
+    .manual>summary::after { content:"+"; display:grid; place-items:center; width:28px; height:28px; flex:none; border:1.5px solid var(--ink); border-radius:50%; font-weight:400; font-size:18px; line-height:1 }
+    .manual[open]>summary::after { content:"−" }
+    .review-form { padding:16px; margin-top:10px; background:var(--tray); border-radius:var(--r-sm) }
+    .review-form label { margin-bottom:12px }
+    .review-form .hint { margin-bottom:12px }
+    .manual .review-form { margin-top:4px; padding:20px 22px; background:#fff; box-shadow:var(--shadow) }
+    .manual .review-form>* { max-width:650px }
+    label .count { color:var(--muted); font-size:13px; font-weight:400 }
+    .columns { display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); gap:24px; margin-top:clamp(32px,4vw,48px); align-items:start }
+    .tabs { display:inline-flex; gap:4px; padding:4px; margin:14px 0 16px; border:1px solid var(--line); border-radius:999px; background:#fff; max-width:100% }
+    .tab { min-height:40px; padding:0 18px; border:0; border-radius:999px; background:none; color:var(--ink); font-size:14px; font-weight:500; white-space:nowrap }
+    .tab:hover { background:var(--tray) }
+    .tab[aria-pressed=true] { background:var(--ink); color:#fff }
+    .tab .count { display:inline-block; min-width:22px; margin-left:6px; padding:0 7px; border-radius:999px; background:var(--accent); color:#fff; font-size:12px; line-height:20px; text-align:center; font-variant-numeric:tabular-nums }
+    .tab[aria-pressed=false] .count { background:var(--tray-2); color:var(--muted) }
+    .tab .count:empty { display:none }
+    .items,.reports { list-style:none; padding:0 }
+    .items { display:grid; gap:8px; padding:8px; background:var(--tray); border-radius:var(--r-md) }
+    .items:empty { display:none }
+    .items>li,.reports>li { background:#fff; border-radius:var(--r-sm); box-shadow:var(--shadow); padding:18px 20px; overflow-wrap:anywhere }
+    .content { margin:6px 0 10px; white-space:pre-line; overflow-wrap:anywhere }
+    .empty { padding:20px 22px; background:var(--tray); border-radius:var(--r-md) }
+    .meta { font-size:13px; margin:4px 0; overflow-wrap:anywhere }
+    .reports li .meta { margin-top:6px }
+    .reports li .content { font-size:14px }
+    .reports-panel { padding:8px }
+    .reports-panel .panel-head { padding:14px 12px 12px }
+    .reports-panel .hint { margin-top:6px }
+    .reports { display:grid; gap:8px }
+    .links { margin-top:8px }
+    .note { margin:10px 0; padding:10px 14px; white-space:pre-wrap; background:var(--tray); border-left:3px solid var(--accent); border-radius:4px var(--r-xs) var(--r-xs) 4px; font-size:15px }
+    @media (min-width:641px) { .site-nav { flex-wrap:wrap; justify-content:flex-end; min-width:0 } }
+    @media (max-width:860px) { .columns { grid-template-columns:1fr } }
+    @media (max-width:640px) {
+      .tabs { display:flex }
+      .tab { flex:1 1 auto; min-width:0; padding:4px 10px; font-size:13px; white-space:normal; line-height:1.25 }
+      .items>li,.reports>li { padding:16px }
+      .manual .review-form { padding:16px }
+    }
+    @media (max-width:520px) {
+      .query { flex:1 0 100% }
+      .platform { flex:1 }
+    }
+    @media (max-width:360px) {
+      .platform,#find { flex:1 0 100% }
+    }
+    @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important } }
+  </style>
+</head>
+<body>
+  <header class="site-head"><div class="shell"><div class="bar">
+    <a class="brand" href="/"><img class="logo" src="/brand/modda-logo.png?v=2611" alt="Modda" width="131" height="26"></a>
+    <nav class="site-nav" aria-label="Разделы"><a href="/monitor">Мониторинг</a><a href="/live">Живой поиск</a><a href="/deepfakes">Проверка видео</a><a href="/demo">К проверке публикаций</a></nav>
+    <a class="btn accent head-cta monitor-link" href="/monitor">Автомониторинг видео</a>
+  </div></div></header>
+  <main class="shell">
+    <section class="hero"><span class="chip">Instagram и Facebook</span>
+      <h1>Поиск видео</h1>
+    </section>
+    <form id="search" class="search dark-panel" aria-label="Поиск по фразе из публикации">
+      <div class="row">
+        <label class="query">Фраза из объявления или подписи<input id="query" required maxlength="180" autocomplete="off" placeholder="Например, halol savdo"></label>
+        <label class="platform">Площадка<select id="platform"><option value="both">Обе площадки</option><option value="instagram">Instagram</option><option value="facebook">Facebook</option></select></label>
+        <button type="submit" class="btn accent" id="find" disabled>Найти видео</button>
+      </div>
+      <div id="presets" class="presets" aria-label="Примеры поисковых фраз"></div>
+      <div class="access">
+        <p class="hint"><span id="connection">Проверяем подключение…</span> <a href="/setup#apify-token" id="setup" hidden>Настроить доступ</a></p>
+        <div class="links" id="web-links" aria-label="Бесплатный поиск по открытым публикациям"></div>
+        <p class="hint">Поиск по словам может пропустить ролики, в которых предложение звучит только в аудио.</p>
+      </div>
+    </form>
+    <details class="manual" id="manual">
+      <summary>Сохранить ссылку вручную</summary>
+      <form id="save-link" class="review-form">
+        <label>Ссылка на Instagram Reel, видео Facebook или объявление Meta<input type="url" id="manual-url" required placeholder="https://…"></label>
+        <label>Описание <span class="count">(по желанию)</span><textarea id="manual-description" rows="2" maxlength="4000"></textarea></label>
+        <button type="submit" class="button">Добавить на проверку</button>
+        <p class="notice error" id="manual-feedback" role="status"></p>
+      </form>
+    </details>
+    <p id="notice" class="notice" role="status"></p>
+    <button type="button" id="reload" class="preset" hidden>Повторить загрузку</button>
+    <div class="columns">
+      <section aria-labelledby="items-title">
+        <h2 id="items-title">Найденные ролики</h2>
+        <div class="tabs" aria-label="Статус проверки" role="group">
+          <button class="tab" type="button" data-status="candidate" aria-pressed="true">На проверку <span class="count" id="n-candidate"></span></button>
+          <button class="tab" type="button" data-status="reviewed" aria-pressed="false">С разбором <span class="count" id="n-reviewed"></span></button>
+        </div>
+        <ul class="items" id="items"></ul><p id="empty" class="empty">Загружаем ролики…</p>
+      </section>
+      <aside class="reports-panel tray" aria-labelledby="reports-title">
+        <div class="panel-head"><h2 id="reports-title">Опубликованные разборы</h2>
+        <p class="hint">Материалы ведомств и фактчекеров с датой и ссылкой на источник.</p></div>
+        <ul class="reports" id="reports"></ul>
+      </aside>
+    </div>
+  </main>
+  <footer class="site-foot shell"><div class="tray"><div><a class="brand" href="/"><img class="logo" src="/brand/modda-logo.png?v=2611" alt="Modda" width="131" height="26"></a><p>Сверка публикаций с законодательством Узбекистана · нормы по Lex.uz</p></div><nav aria-label="Разделы"><a href="/monitor">Мониторинг</a><a href="/live">Живой поиск</a><a href="/deepfakes">Проверка видео</a></nav></div></footer>
+<script>
+    "use strict";
+    const $ = id => document.getElementById(id);
+    const platformNames = {instagram:"Instagram",facebook:"Facebook"};
+    const examplePhrases = [
+      {label:"Выплаты",query:"выплата всем пенсионерам"},
+      {label:"Инвестиции",query:"государственная инвестиционная платформа"},
+      {label:"Компенсации",query:"получите компенсацию по ссылке"}
+    ];
+    const state = {hasToken:false, busy:false, items:[], status:"candidate"};
+    let linkTimer;
+    let linkVersion = 0;
+    function element(tag, text, className) {
+      const node = document.createElement(tag);
+      if (text != null) node.textContent = text;
+      if (className) node.className = className;
+      return node;
+    }
+    function safeUrl(value) {
+      try {
+        const url = new URL(value);
+        return /^https?:$/.test(url.protocol) && !url.username && !url.password ? url : null;
+      } catch { return null; }
+    }
+    function addLink(box, value, label) {
+      const url = safeUrl(value);
+      if (!url) return;
+      const link = element("a",label);
+      link.href = url.href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      box.append(link);
+    }
+    async function api(path, payload) {
+      const options = {cache:"no-store"};
+      if (payload) Object.assign(options,{method:"POST",headers:{"Content-Type":"application/json","X-Lex-Request":"1"},body:JSON.stringify(payload)});
+      const response = await fetch("/api/video-search" + path,options);
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || result.message || "Не удалось выполнить запрос.");
+      return result;
+    }
+    function message(text,error=false) {
+      $("notice").textContent = text;
+      $("notice").classList.toggle("error",error);
+    }
+    function showPresets(presets) {
+      $("presets").replaceChildren(element("span","Попробуйте"));
+      for (const preset of presets) {
+        const button = element("button",preset.label,"preset");
+        button.type = "button";
+        button.title = preset.query;
+        button.addEventListener("click",() => {
+          $("query").value = preset.query;
+          $("query").focus();
+          updateLinks();
+        });
+        $("presets").append(button);
+      }
+    }
+    function drawLinks(links) {
+      const box = $("web-links");
+      box.replaceChildren(element("span","Бесплатный поиск","hint"));
+      for (const [platform,label] of Object.entries(platformNames)) {
+        if ($("platform").value === "both" || $("platform").value === platform) addLink(box,links[platform+"_native"],"Открыть " + label);
+      }
+      addLink(box,links.ads,"Реклама Meta · Узбекистан");
+      const more = element("details"), summary = element("summary","Поиск в Google");
+      more.append(summary);
+      for (const [platform,label] of Object.entries(platformNames)) {
+        if ($("platform").value === "both" || $("platform").value === platform) {
+          const line = element("p"); addLink(line,links[platform],label + " в Google"); more.append(line);
+        }
+      }
+      box.append(more);
+    }
+    function updateLinks() {
+      clearTimeout(linkTimer);
+      const version = ++linkVersion;
+      const query = $("query").value.trim();
+      const sites = {instagram:"site:instagram.com/reel/",facebook:"(site:facebook.com/reel/ OR site:facebook.com inurl:videos)"};
+      const links = {};
+      links.instagram_native = "https://www.instagram.com/explore/search/keyword/?" + new URLSearchParams({q:query});
+      links.facebook_native = "https://www.facebook.com/search/videos/?" + new URLSearchParams({q:query});
+      for (const [platform,filter] of Object.entries(sites)) {
+        links[platform] = "https://www.google.com/search?" + new URLSearchParams({q:[filter,query].filter(Boolean).join(" ")});
+      }
+      links.ads = "https://www.facebook.com/ads/library/?" + new URLSearchParams({active_status:"active",ad_type:"all",country:"UZ",media_type:"video",q:query,search_type:"keyword_unordered"});
+      drawLinks(links);
+      if (query) linkTimer = setTimeout(async () => {
+        try {
+          const result = await api("/links?" + new URLSearchParams({query}));
+          if (version === linkVersion && safeUrl(result.instagram) && safeUrl(result.facebook)) drawLinks({...links,...result});
+        } catch { /* The visible Google links also work without the local API. */ }
+      },350);
+    }
+    function dateLabel(value) {
+      if (!value) return "";
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return String(value);
+      if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return date.toLocaleDateString("ru-RU",{timeZone:"UTC"});
+      return date.toLocaleString("ru-RU",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit",timeZone:"Asia/Tashkent"}) + " (Ташкент)";
+    }
+    function showReports(reports) {
+      const list = $("reports");
+      list.replaceChildren();
+      for (const report of reports) {
+        const item = element("li");
+        item.append(element("h3",report.title));
+        const meta = [];
+        if (report.date) meta.push("Разбор от " + dateLabel(report.date));
+        if (report.platform) meta.push(platformNames[report.platform] || report.platform);
+        const source = safeUrl(report.evidence_url);
+        if (source) meta.push(source.hostname.replace(/^www\./,""));
+        if (meta.length) item.append(element("p",meta.join(" · "),"meta"));
+        if (report.description) item.append(element("p",report.description,"content"));
+        const links = element("div",null,"links");
+        addLink(links,report.evidence_url,"Прочитать разбор");
+        addLink(links,report.original_url,"Подлинное интервью в архиве");
+        addLink(links,report.video_url,"Видео в разборе");
+        item.append(links);
+        list.append(item);
+      }
+      if (!reports.length) list.append(element("li","Пока нет опубликованных разборов.","empty"));
+    }
+    function reviewForm(item) {
+      const details = element("details");
+      const summary = element("summary","Добавить разбор");
+      const form = element("form",null,"review-form");
+      const guide = element("p","Сверьте фразу в ролике с официальной записью и укажите таймкод. Если утверждение касается закона, проверьте статью на Lex.uz.","hint");
+      const urlLabel = element("label","Ссылка на источник проверки");
+      const url = element("input");
+      url.type = "url";
+      url.maxLength = 2048;
+      url.placeholder = "https://…";
+      url.required = true;
+      urlLabel.append(url);
+      const reasonLabel = element("label","Что вы сверили с источником?");
+      const reason = element("textarea");
+      reason.rows = 2;
+      reason.maxLength = 4000;
+      reason.required = true;
+      reasonLabel.append(reason);
+      const submit = element("button","Сохранить разбор","button");
+      submit.type = "submit";
+      const feedback = element("p",null,"notice error");
+      feedback.setAttribute("role","status");
+      form.append(guide,urlLabel,reasonLabel,submit,feedback);
+      form.addEventListener("submit",async event => {
+        event.preventDefault();
+        if (safeUrl(url.value)?.protocol !== "https:" || !reason.value.trim()) {
+          feedback.textContent = "Укажите HTTPS-ссылку и опишите, что удалось проверить.";
+          return;
+        }
+        submit.disabled = true;
+        feedback.textContent = "";
+        try {
+          await api("/review",{id:String(item.id),status:"reviewed",evidence_url:url.value.trim(),reason:reason.value.trim()});
+        } catch (error) {
+          feedback.textContent = error.message;
+          submit.disabled = false;
+          return;
+        }
+        state.status = "reviewed";
+        await load();
+        if ($("reload").hidden) {
+          message("Разбор сохранён на этом компьютере.");
+          document.querySelector('[data-status="reviewed"]').focus();
+        }
+      });
+      details.append(summary,form);
+      return details;
+    }
+    function showItems() {
+      const list = $("items");
+      list.replaceChildren();
+      const current = state.items.filter(item => item.status === state.status);
+      for (const tab of document.querySelectorAll("[data-status]")) {
+        const status = tab.dataset.status;
+        $("n-" + status).textContent = String(state.items.filter(item => item.status === status).length);
+        tab.setAttribute("aria-pressed",String(state.status === status));
+      }
+      $("empty").hidden = current.length > 0;
+      $("empty").textContent = state.status === "reviewed" ? "Здесь появятся ролики, к которым вы добавили источник и пояснение." : "Пока нет роликов на проверку. Найдите видео по фразе из публикации или добавьте ссылку вручную.";
+      for (const item of current) {
+        const row = element("li");
+        const platform = item.platform === "meta_ad_library" ? "Реклама Meta" : (platformNames[item.platform] || item.platform);
+        row.append(element("h3",[platform,item.account].filter(Boolean).join(" · ")));
+        const dates = [];
+        if (item.method === "manual") dates.push("Добавлено по ссылке");
+        if (item.published_at) dates.push("Опубликовано " + dateLabel(item.published_at));
+        if (item.discovered_at) dates.push((item.method === "manual" ? "Сохранено " : "Найдено ") + dateLabel(item.discovered_at));
+        if (dates.length) row.append(element("p",dates.join(" · "),"meta"));
+        if (item.query) row.append(element("p","По запросу «" + item.query + "»","meta"));
+        if (item.description) row.append(element("p",item.description,"content"));
+        if (item.lead) row.append(element("p",item.lead,"note"));
+        const links = element("div",null,"links");
+        addLink(links,item.url,"Открыть ролик");
+        addLink(links,item.reference_url,"Разбор похожей схемы");
+        if (item.status === "reviewed") addLink(links,item.evidence_url,"Источник проверки");
+        row.append(links);
+        if (item.status === "reviewed") row.append(element("p",item.reason,"note"));
+        else row.append(reviewForm(item));
+        list.append(row);
+      }
+    }
+    function controls() {
+      $("find").disabled = !state.hasToken || state.busy;
+      $("find").textContent = state.busy ? "Идёт поиск…" : "Найти видео";
+    }
+    async function load() {
+      try {
+        const data = await api("");
+        state.hasToken = data.has_token === true;
+        state.items = data.items || [];
+        $("connection").textContent = (state.hasToken ? "Поиск подключён." : "Для поиска нужен токен.") + " Лимит за запуск — $0.05 на площадку, до $0.10 за обе.";
+        $("setup").hidden = state.hasToken;
+        const presets = data.presets?.length ? data.presets : examplePhrases;
+        showPresets(presets);
+        if (!$("query").value && !$("query").dataset.edited) $("query").value = presets[0].query;
+        updateLinks();
+        showReports(data.examples || []);
+        showItems();
+        $("reload").hidden = true;
+        controls();
+        return true;
+      } catch {
+        $("connection").textContent = "Не удалось загрузить данные локального поиска. Ссылки на Google доступны.";
+        $("setup").hidden = false;
+        $("empty").textContent = "Список роликов не удалось обновить.";
+        $("reload").hidden = false;
+        state.hasToken = false;
+        controls();
+        message("Проверьте, запущен ли локальный сервер, и повторите загрузку.",true);
+        return false;
+      }
+    }
+    $("search").addEventListener("submit",async event => {
+      event.preventDefault();
+      if (!state.hasToken || state.busy) return;
+      const query = $("query").value.trim();
+      if (!query) { $("query").focus(); return; }
+      state.busy = true;
+      controls();
+      message("Ищем открытые публикации по запросу «" + query + "»…");
+      try {
+        const result = await api("/find",{platform:$("platform").value,query});
+        state.status = "candidate";
+        if (await load()) message(result.message || "Поиск завершён.");
+      } catch (error) { message(error.message,true); }
+      finally { state.busy = false; controls(); }
+    });
+    $("save-link").addEventListener("submit",async event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const submit = form.querySelector("button");
+      submit.disabled = true;
+      $("manual-feedback").textContent = "";
+      try {
+        const result = await api("/save",{url:$("manual-url").value.trim(),query:$("query").value.trim(),description:$("manual-description").value.trim()});
+        form.reset();
+        $("manual").open = false;
+        state.status = "candidate";
+        if (await load()) {
+          message(result.message || "Ссылка сохранена.");
+          document.querySelector('[data-status="candidate"]').focus();
+        }
+      } catch (error) { $("manual-feedback").textContent = error.message; }
+      finally { submit.disabled = false; }
+    });
+    for (const tab of document.querySelectorAll("[data-status]")) {
+      tab.addEventListener("click",() => { state.status = tab.dataset.status; showItems(); });
+    }
+    $("query").addEventListener("input",() => { $("query").dataset.edited = "1"; updateLinks(); });
+    $("platform").addEventListener("change",updateLinks);
+    $("reload").addEventListener("click",async () => { if (await load()) message(""); });
+    showPresets(examplePhrases);
+    updateLinks();
+    load();
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+# Озвучка через VoiceLab (Aisha TTS, https://back.aisha.group).
+# Что умеет API (по документации):
+#   language: uz | ru | en
+#   model:    только для uz, встроенный голос "Gulnoza"
+#   mood:     только для Gulnoza: Neutral | Cheerful | Happy | Sad
+#   speed:    только для uz: 0.5 .. 2.0
+#   voice_id: свой (клонированный) голос из кабинета VoiceLab; тогда mood не отправляется
+#   лимит текста: 1000 символов на запрос
+#
+# ВАЖНО: голос рассказчика и голос Аброра должны отличаться. Для мужского голоса Аброра
+# создайте свой голос в VoiceLab (клон) и впишите его voice_id ниже или в config.yaml.
+
+speakers:
+  narrator:
+    uz: {model: Gulnoza, mood: Neutral, speed: 1.0}
+    ru: {voice_id: null}
+  abror:
+    uz: {voice_id: null, model: Gulnoza, mood: Cheerful, speed: 1.1}
+    ru: {voice_id: null}
+  malika:
+    uz: {model: Gulnoza, mood: Happy, speed: 1.05}
+    ru: {voice_id: null}
+  sardor:
+    uz: {model: Gulnoza, mood: Happy, speed: 1.05}
+    ru: {voice_id: null}
+  bobo:
+    uz: {voice_id: null, model: Gulnoza, mood: Neutral, speed: 0.9}
+    ru: {voice_id: null}
+
+# Эмоции из сценария -> параметры VoiceLab.
+# mood применяется только к Gulnoza, speed_mul умножает скорость (только uz),
+# text: как подправить текст, чтобы эмоция слышалась даже без mood
+#   exclaim  : точку в конце меняем на "!"
+#   question : оставить "?"
+#   pause    : после первого слова ставим запятую-паузу
+emotions:
+  serious:  {mood: Neutral,  speed_mul: 1.0,  text: none}
+  calm:     {mood: Neutral,  speed_mul: 0.95, text: none}
+  excited:  {mood: Cheerful, speed_mul: 1.08, text: exclaim}
+  shouting: {mood: Cheerful, speed_mul: 1.1,  text: exclaim}
+  angry:    {mood: Neutral,  speed_mul: 1.1,  text: exclaim}
+  happy:    {mood: Happy,    speed_mul: 1.05, text: none}
+  laughs:   {mood: Happy,    speed_mul: 1.05, text: none}
+  sad:      {mood: Sad,      speed_mul: 0.92, text: none}
+  surprised: {mood: Cheerful, speed_mul: 1.05, text: exclaim}
+  warning:  {mood: Neutral,  speed_mul: 0.97, text: pause}
+  question: {mood: Neutral,  speed_mul: 1.0,  text: question}

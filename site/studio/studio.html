@@ -1,0 +1,46 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><title>Видеостудия · Modda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/studio/studio.css"><script defer src="/studio/studio.js"></script></head><body>
+<header class="site-head"><div class="shell"><div class="bar"><a class="brand" href="/monitor"><img class="logo" src="/brand/modda-logo.png?v=2611" alt="Modda" width="131" height="26"></a><nav class="site-nav" aria-label="Разделы"><a href="/monitor">Мониторинг</a><a href="/live">Живой поиск</a><a href="/deepfakes">Проверка видео</a><a href="/studio/" aria-current="page">Видеостудия</a></nav><a class="btn accent head-cta" href="/qidiruv/">Поиск по законам</a></div></div></header>
+<main class="shell">
+<section class="hero"><span class="chip">MODDA · ролики о законах</span><div class="hero-row"><h1>Видеостудия</h1><p>Короткие ролики о законах Узбекистана простыми словами. Вы задаёте тему и длину: 15, 30 или 45 секунд. Студия находит статью в базе lex.uz, пишет сценарий с героями, рисует сцены, озвучивает каждого героя, ставит субтитры, звуки и музыку и собирает готовый MP4.</p></div></section>
+<ol class="steps tray" aria-label="Как делается ролик">
+<li><b>1</b><span><strong>Тема</strong>вопрос простыми словами</span></li>
+<li><b>2</b><span><strong>Статья закона</strong>поиск по базе lex.uz</span></li>
+<li><b>3</b><span><strong>Сцены</strong>сценарий, кадры и движение</span></li>
+<li><b>4</b><span><strong>Готовый MP4</strong>голоса, субтитры, музыка</span></li>
+</ol>
+<div class="layout">
+<section class="card make"><span class="chip">Новый ролик</span><h2>Что снять?</h2>
+<form id="create" novalidate>
+<label class="big" for="prompt">Тема или вопрос</label>
+<textarea id="prompt" required minlength="3" maxlength="1500" placeholder="Например: сколько дней ежегодного отпуска положено работнику в Узбекистане"></textarea>
+<div class="ideas" id="ideas" aria-label="Готовые темы"></div>
+<fieldset class="audience"><legend>Для кого ролик</legend>
+<label class="seg"><input type="radio" name="aud" value="u25" checked><span><strong>До 25 лет</strong>человечки и мультфильм</span></label>
+<label class="seg"><input type="radio" name="aud" value="25p"><span><strong>25 лет и старше</strong>инфографика</span></label>
+</fieldset>
+<div class="fields">
+<label>Формат<select id="format"></select></label>
+<label>Визуальный стиль<select id="style"></select></label>
+<label>Язык<select id="lang"><option value="ru">Русский</option><option value="uz">O‘zbekcha</option></select></label>
+<label>Кадр<select id="aspect"><option value="9:16">9:16 — Shorts, Reels</option><option value="16:9">16:9 — YouTube</option></select></label>
+<label>Длительность<select id="duration"></select></label>
+<label>База законов<select id="corpus"><option value="team">Вся база lex.uz (поиск)</option><option value="demo">Трудовой кодекс и реклама (демо)</option></select></label>
+</div>
+<div class="buttons"><button type="button" class="btn ghost" id="search">Найти статьи</button><button class="btn accent arrow" id="submit">Создать ролик</button></div>
+<p id="result" class="note" role="status"></p>
+<div id="sources" class="sources"></div>
+</form></section>
+<aside class="side tray">
+<section class="panel dark"><h3>Ноутбук-монтажёр</h3><p class="state" id="worker" role="status">Проверяем связь…</p><p class="small">Ролики собирает ноутбук студии. Пока он не на связи, задания ждут в очереди и не теряются.</p></section>
+<section class="panel"><h3>Демо-режим</h3><p id="limits" class="small">Загружаем…</p><p class="small">Каждая сцена — платная генерация (15 с — 3 сцены, 30 с — 5, 45 с — 7), поэтому в демо действует суточный лимит.</p></section>
+<section class="panel"><h3>Откуда берутся факты</h3><p class="small" id="corpusInfo"></p><p class="small">Сценарий пишется только по найденным статьям. В ролике и в карточке есть ссылки на lex.uz и дата редакции.</p></section>
+<section class="panel" id="importPanel" hidden><h3>База команды</h3><details><summary>Загрузить свои выдержки</summary><p class="small">JSONL: одна выдержка на строку. Поля: title, article, text, url (ссылка на lex.uz), as_of (ГГГГ-ММ-ДД). Повторная загрузка обновляет выдержку с тем же источником и датой.</p><label>Файл выдержек<input type="file" id="file" accept=".jsonl,.json,application/json"></label><button id="import" class="btn ghost sm">Загрузить</button><p id="importStatus" class="small" role="status"></p></details></section>
+</aside>
+</div>
+<section class="history"><span class="chip">Ролики</span><div class="sectionhead"><h2>Очередь и готовые ролики</h2><select id="filter" aria-label="Фильтр роликов"><option value="all">Все</option><option value="done">Готовые</option><option value="work">В работе и очереди</option><option value="attention">Требуют внимания</option></select></div><div id="jobs" class="jobs"><p class="empty">Загружаем…</p></div></section>
+<p id="error" class="error" role="alert"></p>
+</main>
+<footer class="site-foot shell"><div class="tray"><div><a class="brand" href="/monitor"><img class="logo" src="/brand/modda-logo.png?v=2611" alt="Modda" width="131" height="26"></a><p>Ролики о законах Узбекистана · нормы по Lex.uz</p></div><nav aria-label="Разделы"><a href="/monitor">Мониторинг</a><a href="/live">Живой поиск</a><a href="/deepfakes">Проверка видео</a><a href="/qidiruv/">Поиск по законам</a></nav></div></footer>
+</body></html>

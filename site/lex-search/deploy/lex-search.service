@@ -1,0 +1,24 @@
+[Unit]
+Description=Lex.uz legal search (https://nasa.cartify.ink/qidiruv/)
+After=network.target
+
+[Service]
+User=lexsearch
+Group=lexsearch
+WorkingDirectory=/var/www/nasa.cartify.ink/lex-search
+ExecStart=/var/www/nasa.cartify.ink/lex-search/.venv/bin/python lex.py serve --host 127.0.0.1 --port 18390
+Environment=PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+Restart=always
+RestartSec=3
+
+# изоляция: сервис может писать только в свою папку data
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ReadWritePaths=/var/www/nasa.cartify.ink/lex-search/data
+MemoryMax=1G
+
+[Install]
+WantedBy=multi-user.target

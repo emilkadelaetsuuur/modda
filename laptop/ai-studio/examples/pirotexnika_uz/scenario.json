@@ -1,0 +1,388 @@
+{
+  "id": "pirotexnika_uz",
+  "title": "Yangi yilda petarda: nima mumkin, nima uchun jarima",
+  "lang": "uz",
+  "audience": "teens",
+  "format": "explainer",
+  "style": "bright",
+  "clips_dir": "../pirotexnika_ru/clips",
+  "frames_dir": "../pirotexnika_ru/frames",
+  "source": {
+    "url": "https://lex.uz/docs/7987564",
+    "plate": [
+      "MANBA: LEX.UZ",
+      "OʻRQ-1111-son qonun, 13.01.2026",
+      "MJtK 185¹-modda"
+    ]
+  },
+  "facts": [
+    {
+      "id": "f1",
+      "claim": "Fuqarolarga faqat I sinf pirotexnika",
+      "quote": "хавфлиликнинг I синфига кирувчи пиротехника буюмларини жисмоний ва юридик шахслар томонидан",
+      "article": "4-modda"
+    },
+    {
+      "id": "f2",
+      "claim": "II-V sinflar taqiqlangan",
+      "quote": "хавфлиликнинг II — V синфларига кирувчи пиротехника буюмларини жисмоний",
+      "article": "5-modda"
+    },
+    {
+      "id": "f3",
+      "claim": "Katta salyutni Mudofaa vazirligi oʻtkazadi",
+      "quote": "Ўзбекистон Республикаси Мудофаа вазирлиги томонидан амалга оширилади",
+      "article": "6-modda"
+    },
+    {
+      "id": "f4",
+      "claim": "Jarima 15-25 BHM (6 mln soʻmdan ortiq)",
+      "quote": "«ўн беш бараваридан йигирма беш бараваригача»",
+      "article": "MJtK 185¹"
+    },
+    {
+      "id": "f5",
+      "claim": "Qonun eʼlondan 3 oy oʻtib, 2026-yil aprelda kuchga kiradi",
+      "quote": "расмий эълон қилинган кундан эътиборан уч ой ўтгач кучга киради",
+      "article": "15-modda"
+    }
+  ],
+  "clips": {
+    "c1": {
+      "shot": "hook_extreme_low",
+      "characters": [
+        "crowd"
+      ],
+      "scene": "A colorful Tashkent apartment block at night in winter, a firecracker explodes on a balcony, neighbors lean out in shock.",
+      "action": "the firecracker blast flashes on the balcony and neighbors jump back",
+      "motion": "handheld_blast",
+      "props": [
+        "exploding firecracker",
+        "burning balcony laundry"
+      ]
+    },
+    "c2": {
+      "shot": "ecu_reaction",
+      "characters": [
+        "abror"
+      ],
+      "scene": "Abror's face fills the frame at night, fireworks bokeh behind him, he is outraged.",
+      "action": "Abror shouts angrily and points straight at the camera",
+      "motion": "snap_zoom_yell",
+      "props": [
+        "fireworks bokeh in the night sky"
+      ]
+    },
+    "c3": {
+      "shot": "top_down_table",
+      "characters": [],
+      "scene": "A turquoise table covered with firecrackers, rockets and a firework cake box, a white cartoon glove slams down.",
+      "action": "the hand slams the table and the firecrackers bounce",
+      "motion": "top_down_impact",
+      "props": [
+        "firecrackers",
+        "rockets",
+        "firework cake box"
+      ]
+    },
+    "c4": {
+      "shot": "over_shoulder_officer",
+      "characters": [
+        "officer"
+      ],
+      "scene": "Snowy evening street, a teenage stickman boy in a yellow puffer jacket holds a box of firecrackers and sweats, police car lights behind.",
+      "action": "the boy nervously scratches his head and hands over the box",
+      "motion": "slow_arc",
+      "props": [
+        "box of firecrackers",
+        "police car with blue lights",
+        "officer tablet"
+      ]
+    },
+    "c5": {
+      "shot": "aerial_drone",
+      "characters": [],
+      "scene": "Aerial view of a snowy Tashkent-like city at night with the TV tower, a huge official fireworks show above a park.",
+      "action": "giant colorful fireworks burst above the tower",
+      "motion": "drone_flyin",
+      "props": [
+        "Tashkent TV tower",
+        "official fireworks show"
+      ]
+    },
+    "c6": {
+      "shot": "low_orbit_group",
+      "characters": [
+        "abror",
+        "crowd"
+      ],
+      "scene": "Abror laughs with a happy family under string lights and snow, everyone holds small sparklers.",
+      "action": "everyone waves sparklers and laughs together",
+      "motion": "low_orbit",
+      "props": [
+        "small handheld sparklers",
+        "string lights"
+      ]
+    }
+  },
+  "shots": [
+    {
+      "id": "s01",
+      "speaker": "narrator",
+      "emotion": "serious",
+      "text": "Bitta petarda, va qoʻshnining balkoni yonmoqda!",
+      "captions": [
+        [
+          "Bitta petarda,",
+          "y"
+        ],
+        [
+          "va qoʻshnining balkoni",
+          "w"
+        ],
+        [
+          "yonmoqda!",
+          "r"
+        ]
+      ],
+      "visual": {
+        "clip": "c1",
+        "offset": 0.0
+      },
+      "sfx": [
+        "boom"
+      ]
+    },
+    {
+      "id": "s02",
+      "speaker": "abror",
+      "emotion": "shouting",
+      "text": "Hoy! Nima qilyapsizlar?!",
+      "captions": [
+        [
+          "HOY!",
+          "y"
+        ],
+        [
+          "Nima qilyapsizlar?!",
+          "w"
+        ]
+      ],
+      "visual": {
+        "clip": "c2",
+        "offset": 0.2
+      }
+    },
+    {
+      "id": "s03",
+      "speaker": "narrator",
+      "emotion": "serious",
+      "text": "Buning uchun jarima olti million soʻmdan ortiq.",
+      "captions": [
+        [
+          "Buning uchun jarima",
+          "w"
+        ],
+        [
+          "6 mln soʻmdan ortiq",
+          "y"
+        ]
+      ],
+      "visual": {
+        "clip": "c4",
+        "offset": 0.0
+      },
+      "facts": [
+        "f4"
+      ]
+    },
+    {
+      "id": "s04",
+      "speaker": "abror",
+      "emotion": "angry",
+      "text": "Petarda, raketa, koʻcha salyuti!",
+      "captions": [
+        [
+          "Petarda,",
+          "w"
+        ],
+        [
+          "raketa,",
+          "w"
+        ],
+        [
+          "koʻcha salyuti",
+          "y"
+        ]
+      ],
+      "visual": {
+        "image": "c3",
+        "fx": "slam"
+      },
+      "sfx": [
+        {
+          "name": "boom",
+          "vol": 0.55,
+          "dur": 1.2
+        }
+      ],
+      "facts": [
+        "f2"
+      ]
+    },
+    {
+      "id": "s05",
+      "speaker": "abror",
+      "emotion": "shouting",
+      "text": "Hammasi taqiqlangan!",
+      "captions": [
+        [
+          "HAMMASI",
+          "w"
+        ],
+        [
+          "TAQIQLANGAN!",
+          "r"
+        ]
+      ],
+      "visual": {
+        "clip": "c2",
+        "offset": 4.6
+      },
+      "facts": [
+        "f2"
+      ]
+    },
+    {
+      "id": "s06",
+      "speaker": "narrator",
+      "emotion": "serious",
+      "text": "2026-yil apreldan pirotexnika haqida yangi qonun amalda.",
+      "captions": [
+        [
+          "2026-yil apreldan",
+          "w"
+        ],
+        [
+          "pirotexnika haqida",
+          "w"
+        ],
+        [
+          "yangi qonun amalda",
+          "y"
+        ]
+      ],
+      "visual": {
+        "clip": "c1",
+        "offset": 3.6
+      },
+      "facts": [
+        "f5"
+      ]
+    },
+    {
+      "id": "s07",
+      "speaker": "narrator",
+      "emotion": "warning",
+      "text": "Qoidabuzarlik? Jarima BHMning oʻn beshdan yigirma besh baravarigacha va musodara.",
+      "captions": [
+        [
+          "Qoidabuzarlik?",
+          "w"
+        ],
+        [
+          "Jarima 15-25 BHM",
+          "y"
+        ],
+        [
+          "va musodara",
+          "r"
+        ]
+      ],
+      "visual": {
+        "clip": "c4",
+        "offset": 2.9
+      },
+      "facts": [
+        "f4"
+      ]
+    },
+    {
+      "id": "s08",
+      "speaker": "abror",
+      "emotion": "happy",
+      "text": "Bengal olovi va kichik favvoralar mumkin!",
+      "captions": [
+        [
+          "Bengal olovi",
+          "g"
+        ],
+        [
+          "va kichik favvoralar",
+          "w"
+        ],
+        [
+          "MUMKIN!",
+          "g"
+        ]
+      ],
+      "visual": {
+        "clip": "c6",
+        "offset": 0.0
+      },
+      "facts": [
+        "f1"
+      ]
+    },
+    {
+      "id": "s09",
+      "speaker": "narrator",
+      "emotion": "calm",
+      "text": "Katta salyutni faqat Mudofaa vazirligi oʻtkazadi.",
+      "captions": [
+        [
+          "Katta salyutni faqat",
+          "w"
+        ],
+        [
+          "Mudofaa vazirligi oʻtkazadi",
+          "y"
+        ]
+      ],
+      "visual": {
+        "clip": "c5",
+        "offset": 0.0
+      },
+      "sfx": [
+        "fireworks_show"
+      ],
+      "facts": [
+        "f3"
+      ]
+    },
+    {
+      "id": "s10",
+      "speaker": "abror",
+      "emotion": "laughs",
+      "text": "Ha-ha! Bayramni yorqin, lekin qonun bilan nishonlang!",
+      "captions": [
+        [
+          "Ha-ha!",
+          "w"
+        ],
+        [
+          "Bayramni yorqin,",
+          "y"
+        ],
+        [
+          "lekin QONUN BILAN nishonlang!",
+          "g"
+        ]
+      ],
+      "visual": {
+        "clip": "c6",
+        "offset": 4.5
+      }
+    }
+  ]
+}

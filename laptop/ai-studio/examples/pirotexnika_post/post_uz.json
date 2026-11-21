@@ -1,0 +1,112 @@
+{
+  "id": "pirotexnika_post",
+  "lang": "uz",
+  "theme": "official",
+  "format": "4x5",
+  "source_line": "Manba: lex.uz · OʻRQ-1111-son «Pirotexnika buyumlarining muomalasi toʻgʻrisida»gi qonun",
+  "facts": [
+    {
+      "id": "f1",
+      "claim": "Гражданам можно только I класс",
+      "quote": "хранение и использование пиротехнических изделий I класса опасности",
+      "article": "ст. 4"
+    },
+    {
+      "id": "f2",
+      "claim": "II-V классы запрещены",
+      "quote": "пиротехнических изделий II — V классов опасности физическими и юридическими лицам запрещается",
+      "article": "ст. 5"
+    },
+    {
+      "id": "f3",
+      "claim": "Салюты проводит Минобороны",
+      "quote": "осуществляются Министерством обороны Республики Узбекистан",
+      "article": "ст. 6"
+    },
+    {
+      "id": "f4",
+      "claim": "Штраф 15-25 БРВ, было 5-20; 6 180 000 - 10 300 000 сум",
+      "quote": "заменить словами «в размере от пятнадцати до двадцати пяти»",
+      "article": "ст. 185¹ КоАО"
+    },
+    {
+      "id": "f5",
+      "claim": "Вступает в силу через 3 месяца, апрель 2026, подписан 13.01.2026",
+      "quote": "вступает в силу по истечении трех месяцев со дня его официального опубликования",
+      "article": "ст. 15"
+    }
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "label": "Pirotexnika · Yangi yil",
+      "lines": [
+        "Yangi yilda petarda:",
+        "nima mumkin, nima uchun jarima"
+      ],
+      "accent": [
+        1
+      ],
+      "sub": "Yangi qonunni 1 daqiqada tushuntiramiz",
+      "icon": "firecracker"
+    },
+    {
+      "type": "number",
+      "label": "Eng kam jarima",
+      "value": "6 180 000",
+      "unit": "soʻm",
+      "note": "Bitta petarda shuncha turishi mumkin. Bu 412 000 soʻmdan 15 BHM."
+    },
+    {
+      "type": "compare",
+      "label": "MJtK 185¹-modda",
+      "before": {
+        "caption": "Avval",
+        "value": "5–20 BHM"
+      },
+      "after": {
+        "caption": "Endi",
+        "value": "15–25 BHM"
+      },
+      "sub": "6 180 000 – 10 300 000 soʻm",
+      "tag": "+ musodara"
+    },
+    {
+      "type": "list",
+      "label": "4 va 5-moddalar",
+      "title": "Nima mumkin, nima mumkin emas",
+      "items": [
+        {
+          "text": "I sinf: hammaga mumkin",
+          "kind": "pos",
+          "note": "bengal olovi, kichik favvoralar"
+        },
+        {
+          "text": "II–V sinflar: fuqarolarga taqiqlangan",
+          "kind": "neg",
+          "note": "petarda, raketa, salyut batareyalari"
+        },
+        {
+          "text": "Katta salyutni faqat Mudofaa vazirligi oʻtkazadi",
+          "kind": "pos",
+          "icon": "shield"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "label": "Qonunda nima yozilgan",
+      "quote": "Ushbu Qonun rasmiy eʼlon qilingan kundan eʼtiboran uch oy oʻtgach kuchga kiradi",
+      "article": "15-modda, OʻRQ-1111-son qonun, 13.01.2026"
+    },
+    {
+      "type": "outro",
+      "lines": [
+        "Bayramni yorqin,",
+        "lekin qonun bilan nishonlang"
+      ],
+      "sub": "Qonunlarni lex.uz da tekshiring va postni saqlab qoʻying"
+    }
+  ],
+  "caption": "Yangi yilda bitta petarda 6 million soʻmdan qimmatga tushishi mumkin.\n\n2026-yil apreldan OʻRQ-1111-son «Pirotexnika buyumlarining muomalasi toʻgʻrisida»gi qonun amalda:\n• fuqarolarga faqat I sinf pirotexnika mumkin (bengal olovi, kichik favvoralar);\n• petarda, raketa va salyut batareyalari (II–V sinflar) taqiqlangan;\n• jarima 15–25 BHM, yaʼni 6 180 000 – 10 300 000 soʻm va musodara;\n• katta salyutni faqat Mudofaa vazirligi oʻtkazadi.\n\nManba: lex.uz\n\n#qonun #pirotexnika #yangiyil #huquq #moddaai"
+}

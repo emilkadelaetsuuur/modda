@@ -1,0 +1,24 @@
+# secrets
+.env
+*.key
+*.pem
+service.env
+*.private.json
+config.yaml
+# data
+*.sqlite
+*.sqlite-*
+*.db
+data/
+jobs/
+projects/
+renders/
+work_rejected/
+# environments and caches
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+# backups made during server edits
+*.before-*
+*.orig

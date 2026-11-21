@@ -1,0 +1,82 @@
+# Персонажи. sheet вставляется в промпт кадра ДОСЛОВНО каждый раз, когда персонаж в кадре.
+# Так он остаётся одинаковым во всех кадрах. refs: картинки-референсы (assets/refs).
+# voice: голос по умолчанию для озвучки (см. voices.yaml). role: кто он в сценарии.
+
+abror:
+  name_ru: "Аброр"
+  name_uz: "Abror"
+  role: "главный герой, эмоциональный, реагирует на нарушения, объясняет на пальцах"
+  sheet: >-
+    Abror: adult stickman man with a big round white head, small black dot eyes, very expressive
+    thick eyebrows, a short neat black beard, wearing a black Uzbek Chust doppi: a square four-sided
+    black skullcap with exactly four large white pepper-shaped (chili pod) motifs, one on each side,
+    and a thin white zigzag band at the bottom; navy blue jacket over a light blue shirt, white
+    cartoon gloves, thin black stick legs, dark shoes.
+  refs: [abror_face.jpg, abror_full.jpg]
+  check: "чёрная квадратная тюбетейка с 4 белыми перчиками и белым зигзагом снизу; короткая чёрная борода; тёмно-синий пиджак и голубая рубашка; белые перчатки; круглая белая голова"
+  voice: abror
+
+malika:
+  name_ru: "Малика"
+  name_uz: "Malika"
+  role: "подросток 15 лет, задаёт вопросы как зритель, иногда ошибается"
+  sheet: >-
+    Malika: teenage stickman girl, big round white head, small black dot eyes, curious eyebrows,
+    two long dark braids, bright yellow hoodie with a small teal star, light jeans, white sneakers,
+    white cartoon gloves, holds a smartphone.
+  refs: []
+  voice: malika
+
+sardor:
+  name_ru: "Сардор"
+  name_uz: "Sardor"
+  role: "мальчик 9 лет, для детских роликов, весёлый и любопытный"
+  sheet: >-
+    Sardor: small stickman boy, oversized round white head, small black dot eyes, rosy cheeks,
+    messy short black hair tuft, bright orange t-shirt, blue shorts, red sneakers with white laces,
+    white cartoon gloves, a small green backpack.
+  refs: []
+  voice: sardor
+
+bobo:
+  name_ru: "Бобо (дедушка)"
+  name_uz: "Bobo"
+  role: "дедушка, для роликов пожилым, мудрый, спокойный"
+  sheet: >-
+    Bobo: elderly stickman grandfather, big round white head, kind small black dot eyes, white
+    eyebrows, short white beard, black-and-white Chust doppi, long striped chapan robe in deep blue
+    and gold, walking cane, white cartoon gloves.
+  refs: []
+  voice: bobo
+
+nodira:
+  name_ru: "Нодира (юрист MODDA AI)"
+  name_uz: "Nodira"
+  role: "юрист, даёт точную справку по статье закона, спокойная и уверенная"
+  sheet: >-
+    Nodira: adult stickman woman lawyer, big round white head, small black dot eyes, confident
+    eyebrows, dark hair in a neat bun, teal (#0F8B6E) blazer with a small yellow badge, white blouse,
+    holds a thin tablet, white cartoon gloves.
+  refs: []
+  voice: narrator
+
+officer:
+  name_ru: "Инспектор"
+  name_uz: "Inspektor"
+  role: "нейтральный представитель власти, без реальных знаков и надписей"
+  sheet: >-
+    Officer: stickman police officer, big round white head, small black dot eyes, neutral calm
+    eyebrows, dark navy uniform and peaked cap with no readable insignia or text, holds a tablet,
+    white cartoon gloves.
+  refs: []
+  voice: narrator
+
+crowd:
+  name_ru: "Массовка"
+  name_uz: "Olomon"
+  role: "соседи, прохожие, семья"
+  sheet: >-
+    Background stickman people with round white heads and dot eyes, varied colorful winter or summer
+    clothes (match the scene), simple expressive poses.
+  refs: []
+  voice: narrator

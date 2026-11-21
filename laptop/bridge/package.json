@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@anthropic-ai/claude-code": "2.1.330",
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "@playwright/mcp": "0.0.86",
+    "playwright-core": "1.66.0-alpha-2026-11-18",
+    "zod": "3.25.76"
+  }
+}

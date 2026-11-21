@@ -1,0 +1,131 @@
+# Библиотека ракурсов. camera вставляется в промпт кадра. motion: какое движение камеры
+# лучше всего подходит (ключ из motions.yaml). use: когда брать.
+# Правило монтажа: два соседних шота не должны иметь одинаковый ракурс.
+
+hook_extreme_low:
+  use: "Хук в первые 2 секунды: взрыв, авария, нарушение крупно и снизу"
+  camera: >-
+    Extreme low-angle wide shot looking up, strong perspective distortion, the action bursts
+    toward the camera, dramatic sky behind, debris and sparks flying past the lens.
+  motion: handheld_blast
+
+ecu_reaction:
+  use: "Эмоция героя: шок, возмущение, смех. Сразу после хука"
+  camera: >-
+    Extreme close-up of the character's face filling the frame, slight dutch tilt, eyes wide,
+    eyebrows very expressive, mouth open mid-shout, bokeh lights in the background.
+  motion: snap_zoom_yell
+
+top_down_table:
+  use: "Перечисление запрещённых или нужных предметов: вид сверху на стол"
+  camera: >-
+    Top-down overhead flat-lay shot of a table with neatly scattered objects, a cartoon hand slams
+    down from the top edge, impact burst lines, objects jump.
+  motion: top_down_impact
+
+over_shoulder_officer:
+  use: "Последствия: штраф, проверка, разговор с инспектором"
+  camera: >-
+    Over-the-shoulder shot from behind the officer, the violator in front looks worried and sweats,
+    the officer's tablet in the foreground shows a red warning icon and a money icon (no text).
+  motion: slow_arc
+
+aerial_drone:
+  use: "Масштаб, город, официальное мероприятие, финальный вау-кадр"
+  camera: >-
+    Aerial drone shot high above a Tashkent-like city at night, the TV tower as a landmark,
+    wide view of streets and parks, big event happening in the sky above.
+  motion: drone_flyin
+
+low_orbit_group:
+  use: "Хороший финал: семья или друзья делают правильно"
+  camera: >-
+    Low-angle medium-wide shot of a happy group, warm string lights and bokeh, characters smiling
+    and holding allowed items, festive mood.
+  motion: low_orbit
+
+two_shot_dialog:
+  use: "Диалог двух героев: вопрос и ответ"
+  camera: >-
+    Medium two-shot, two characters face each other in profile, one gesturing while explaining,
+    the other listening with a raised eyebrow, clean background.
+  motion: push_in_slow
+
+wide_establishing:
+  use: "Где мы: махалля, двор, рынок, школа, улица"
+  camera: >-
+    Wide establishing shot of the location at eye level, layered foreground, midground and
+    background, the main character small in the frame doing the key action.
+  motion: crane_down
+
+pov_phone_feed:
+  use: "Фейк в соцсетях: герой листает телефон"
+  camera: >-
+    Point-of-view shot over the character's gloved hands holding a smartphone, the screen shows
+    a social feed with blurred shapes, a big red exclamation icon and an angry emoji (no readable
+    text), face reflection on the glass.
+  motion: push_in_slow
+
+fake_vs_fact_split:
+  use: "Опровержение: слева фейк, справа правда (подпись накладываем сами)"
+  camera: >-
+    Symmetric split composition: left half dark red with a crumpled paper and a big red X icon,
+    right half teal with a glowing document and a big green check icon, a character in the
+    center pointing to the right side.
+  motion: parallax_float
+
+document_insert:
+  use: "Ссылка на закон: документ, печать, весы правосудия (без читаемого текста)"
+  camera: >-
+    Close-up insert shot of an official document with a round stamp and a small scales-of-justice
+    icon on a desk, unreadable placeholder lines instead of text, soft rim light.
+  motion: rack_focus
+
+macro_object:
+  use: "Крупно предмет-доказательство: петарда, телефон, ключи, чек"
+  camera: >-
+    Macro close-up of the single key object, ultra crisp details, dramatic rim light, shallow
+    depth of field, background melted into colorful bokeh.
+  motion: dolly_in_macro
+
+dolly_zoom_shock:
+  use: "Момент осознания: герой понимает, что попал"
+  camera: >-
+    Medium close-up of the character frozen in shock, background corridor or street stretched
+    with strong depth, cinematic vertigo look.
+  motion: dolly_zoom
+
+silhouette_backlight:
+  use: "Драма, ночь, опасность"
+  camera: >-
+    Backlit silhouette shot, the character dark against a bright glowing background (fire, sunset
+    or city lights), strong rim light outlining the shape.
+  motion: static_breathing
+
+crowd_wide:
+  use: "Много людей: соседи вышли, очередь, площадь"
+  camera: >-
+    High-angle wide shot of many stickman people reacting together, the main character in the
+    center highlighted by light.
+  motion: crane_up
+
+classroom:
+  use: "Детские и подростковые ролики: урок, школа"
+  camera: >-
+    Eye-level wide shot of a bright classroom, the character at the board drawing a simple icon,
+    classmates watching from desks in the foreground.
+  motion: push_in_slow
+
+courtroom_light:
+  use: "Суд, обжалование, права (дружелюбно, без мрачности)"
+  camera: >-
+    Low-angle shot of a bright friendly courtroom, wooden bench, scales-of-justice icon on the wall,
+    the character standing confidently.
+  motion: crane_up
+
+home_cozy:
+  use: "Семья дома, пожилые, бытовые ситуации"
+  camera: >-
+    Warm eye-level medium shot inside a cozy Uzbek home with a dastarkhan table, tea set, soft lamp
+    light, characters sitting together.
+  motion: slow_arc

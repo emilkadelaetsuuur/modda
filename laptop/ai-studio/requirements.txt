@@ -1,0 +1,7 @@
+requests>=2.31
+PyYAML>=6.0
+Pillow>=10.0
+numpy>=1.24
+beautifulsoup4>=4.12
+faster-whisper>=1.0      # тайминг субтитров по словам (можно без него: тогда по символам)
+google-genai>=1.40       # только для режима api (Nano Banana / Veo)

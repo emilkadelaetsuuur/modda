@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "modda": {
+      "command": "C:\\Program Files\\nodejs\\node.EXE",
+      "args": [
+        "C:\\Users\\User\\AppData\\Local\\ModdaBridge\\bridge\\tools.mjs"
+      ],
+      "env": {
+        "MODDA_HOME": "C:\\Users\\User\\AppData\\Local\\ModdaBridge",
+        "MODDA_PYTHON": "C:\\Users\\User\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "PYTHONUTF8": "1",
+        "PYTHONIOENCODING": "utf-8"
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+[Unit]
+Description=Lex refutations: Lex Monitor findings -> MODDA videos -> export packages
+After=network.target lex-search.service
+
+[Service]
+Type=oneshot
+# root: читает базы Lex Monitor и MODDA (только чтение) и ключ владельца студии
+WorkingDirectory=/var/www/nasa.cartify.ink/lex-search
+EnvironmentFile=/opt/lex-monitor/modda/private/service.env
+Environment=PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+# настройки моста (см. lexuz/refute.py)
+Environment=REFUTE_CATEGORIES=inaccurate_claim REFUTE_LANGS=uz REFUTE_SCENES=2 REFUTE_DAILY_LIMIT=3
+ExecStart=/var/www/nasa.cartify.ink/lex-search/.venv/bin/python lex.py refute
+TimeoutStartSec=300
+NoNewPrivileges=yes
+ProtectSystem=full
+ProtectHome=yes
+PrivateTmp=yes
